@@ -1,0 +1,138 @@
+/* ============ AquaFilter Design System ============ */
+:root {
+  /* Brand — water blue */
+  --c-primary: #0a9bd6;
+  --c-primary-dark: #0782b8;
+  --c-primary-darker: #075e86;
+  --c-primary-soft: #e7f6fc;
+  --c-primary-soft-2: #d3edf9;
+  --c-accent: #16c79a;          /* fresh teal-green for prices/success */
+  --c-accent-dark: #0fa681;
+
+  /* Neutrals */
+  --c-ink: #10222e;
+  --c-ink-2: #33505f;
+  --c-muted: #6b8494;
+  --c-line: #e2ebf0;
+  --c-surface: #ffffff;
+  --c-bg: #f4fafd;
+  --c-bg-2: #eaf4f9;
+
+  /* Effects */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 2px 8px rgba(16, 60, 90, 0.06);
+  --shadow: 0 10px 30px rgba(16, 60, 90, 0.10);
+  --shadow-lg: 0 20px 50px rgba(16, 60, 90, 0.16);
+
+  /* Type */
+  --font-head: 'Rubik', 'Heebo', system-ui, sans-serif;
+  --font-body: 'Heebo', 'Rubik', system-ui, sans-serif;
+
+  /* Layout */
+  --maxw: 1200px;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--c-bg);
+  color: var(--c-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--c-ink);
+  line-height: 1.2;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  min-height: 44px;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: linear-gradient(180deg, var(--c-primary), var(--c-primary-dark));
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(10, 155, 214, 0.35);
+}
+.btn-primary:hover { box-shadow: 0 10px 24px rgba(10, 155, 214, 0.45); }
+.btn-ghost {
+  background: #fff;
+  color: var(--c-primary-dark);
+  border: 1.5px solid var(--c-primary-soft-2);
+}
+.btn-ghost:hover { border-color: var(--c-primary); background: var(--c-primary-soft); }
+
+/* Section rhythm */
+.section { padding-block: clamp(48px, 7vw, 88px); }
+.section-head { text-align: center; max-width: 640px; margin-inline: auto; margin-bottom: 44px; }
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--c-primary-dark);
+  background: var(--c-primary-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.section-head h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 700; }
+.section-head p { color: var(--c-ink-2); margin-top: 12px; font-size: 17px; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* Utility for logical float of decorative wave */
+.wave-divider { display: block; width: 100%; line-height: 0; }
