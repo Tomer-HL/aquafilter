@@ -10,6 +10,7 @@ import './App.css'
 const tierIcons = [Droplets, Filter, Droplet, ShieldCheck, Filter]
 const featureIcons = [Sparkles, Award, Wrench, ShieldCheck]
 const catIcons = [Droplets, Filter, ShieldCheck, Sparkles]
+const benefitIcons = [Droplet, Wrench, ShieldCheck, Award]
 
 export default function App() {
   const [lang, setLang] = useState('he')
@@ -151,6 +152,38 @@ export default function App() {
                   </article>
                 )
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Combined Main Filter spotlight */}
+        <section className="section main-filter" id="main-filter" style={{ paddingTop: 0 }}>
+          <div className="container">
+            <div className="section-head">
+              <span className="eyebrow">{t.mainFilter.eyebrow}</span>
+              <h2>{t.mainFilter.title}</h2>
+              <p>{t.mainFilter.sub}</p>
+            </div>
+            <div className="mf-specs">
+              {t.mainFilter.specs.map((s, i) => (
+                <span className="mf-chip" key={i}><Check size={15} /> {s}</span>
+              ))}
+              <span className="mf-chip gift"><Sparkles size={15} /> {t.mainFilter.gift}</span>
+            </div>
+            <div className="features-grid">
+              {t.mainFilter.benefits.map((b, i) => {
+                const Icon = benefitIcons[i]
+                return (
+                  <div className="feature" key={i}>
+                    <div className="fi"><Icon size={24} /></div>
+                    <h3>{b.title}</h3>
+                    <p>{b.desc}</p>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="mf-cta">
+              <a className="btn btn-primary" href="tel:0506830881"><Phone size={18} /> {t.mainFilter.cta}</a>
             </div>
           </div>
         </section>

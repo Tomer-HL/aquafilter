@@ -39,6 +39,20 @@ export const content = {
       { badge: 'לכל הבית', name: 'מערכת דירתית', model: 'DUO-2', desc: 'מסנן דו-שלבי בכניסה לבית · מונע אבנית · מסנן חול, חלודה וכלוך גס', price: '₪690', cta: 'לפרטים' },
       { badge: 'מתנה: שסתום אל־חוזר ¾״', name: 'מסנן ראשי משולב', model: 'רשת נירוסטה 50µ', desc: 'לכל הבית · מניעת התגבשות אבנית עד 85% · סינון לכלוך ברמת 50 מיקרון · רשת נירוסטה · כולל התקנה מלאה ושנה אחריות', price: 'לפי הצעה', cta: 'לפרטים' },
     ],
+    mainFilter: {
+      eyebrow: 'מוצר מוביל',
+      title: 'מסנן ראשי משולב',
+      sub: 'מחסנית משולבת למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה) — הגנה מלאה על הצנרת והבית.',
+      specs: ['מניעת אבנית עד 85%', 'סינון 50 מיקרון · רשת נירוסטה', 'התקנה מלאה', 'שנה אחריות'],
+      gift: 'מתנה: שסתום אל־חוזר ¾״',
+      benefits: [
+        { title: 'מים נקיים וצלולים', desc: 'סינון חול, חלודה ולכלוך גס — מים צלולים בכל ברז בבית.' },
+        { title: 'הגנה על הברזים והצנרת', desc: 'מונע שקיעת אבנית בצנרת ובאביזרים ושומר על זרימה חופשית.' },
+        { title: 'שמירה על הדוד וגופי החימום', desc: 'פחות אבנית על גוף החימום — יעילות גבוהה ואורך חיים ארוך יותר.' },
+        { title: 'חיסכון בהוצאות והארכת חיי המכשירים', desc: 'פחות תקלות ותיקונים — חיסכון בחשמל ובעלויות תחזוקה.' },
+      ],
+      cta: 'לייעוץ והזמנה · 050-6830881',
+    },
     featuresHead: { eyebrow: 'למה לבחור בנו', title: 'טיפול במים שאפשר לסמוך עליו', sub: '' },
     features: [
       { title: 'סינון בדרגה גבוהה', desc: 'מסלק כלור, עופרת, כספית, פלואור, אבנית, בקטריות ואצות — מים בטוחים באמת.' },
@@ -131,6 +145,20 @@ export const content = {
       { badge: 'Whole home', name: 'Apartment System', model: 'DUO-2', desc: 'Two-stage filter at the home inlet · Prevents scale · Filters sand, rust & debris', price: '₪690', cta: 'Details' },
       { badge: 'Gift: ¾" check valve', name: 'Combined Main Filter', model: '50µ Stainless Mesh', desc: 'Whole-home · Prevents scale buildup up to 85% · 50-micron dirt filtration · Stainless-steel mesh · Full installation & 1-year warranty', price: 'Get a quote', cta: 'Details' },
     ],
+    mainFilter: {
+      eyebrow: 'Flagship product',
+      title: 'Combined Main Filter',
+      sub: 'A combined cartridge that prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh) — full protection for your plumbing and home.',
+      specs: ['Up to 85% scale prevention', '50-micron filtration · stainless mesh', 'Full installation', '1-year warranty'],
+      gift: 'Gift: ¾" check valve',
+      benefits: [
+        { title: 'Clean, clear water', desc: 'Filters sand, rust and coarse debris — clear water at every tap in the home.' },
+        { title: 'Protects faucets & pipes', desc: 'Prevents scale buildup in pipes and fittings and keeps water flowing freely.' },
+        { title: 'Protects boiler & heating elements', desc: 'Less scale on the heating element — higher efficiency and a longer lifespan.' },
+        { title: 'Saves money & extends appliance life', desc: 'Fewer breakdowns and repairs — savings on power and maintenance costs.' },
+      ],
+      cta: 'Get advice & order · 050-6830881',
+    },
     featuresHead: { eyebrow: 'Why choose us', title: 'Water treatment you can trust', sub: '' },
     features: [
       { title: 'High-grade filtration', desc: 'Removes chlorine, lead, mercury, fluoride, scale, bacteria and algae — truly safe water.' },

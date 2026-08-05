@@ -368,3 +368,21 @@ a.line:hover { color: #7fd4f5; }
   .brand-name { font-size: 16px; }
   .brand-tag { font-size: 11px; }
 }
+
+/* Combined Main Filter spotlight */
+.mf-specs {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 4px 0 26px;
+}
+.mf-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border-radius: 999px;
+  background: var(--c-primary-soft); color: var(--c-primary-darker);
+  font-weight: 600; font-size: 14px; border: 1px solid var(--c-line);
+}
+.mf-chip svg { color: var(--c-primary); }
+.mf-chip.gift {
+  background: linear-gradient(160deg, var(--c-primary), var(--c-primary-darker));
+  color: #fff; border-color: transparent;
+}
+.mf-chip.gift svg { color: #fff; }
+.mf-cta { text-align: center; margin-top: 26px; }
