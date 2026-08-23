@@ -65,9 +65,9 @@ export default function App() {
 
           <div className="header-actions">
             <a className="phone-pill" href="tel:0506830881"><Phone size={17} /><span>{t.header.phone}</span></a>
-            <button className="icon-btn" aria-label={t.header.search}><Search size={20} /></button>
-            <button className="icon-btn" aria-label="Wishlist"><Heart size={20} /></button>
-            <button className="icon-btn" aria-label={t.header.cart}>
+            <button className="icon-btn hide-sm" aria-label={t.header.search}><Search size={20} /></button>
+            <button className="icon-btn hide-sm" aria-label="Wishlist"><Heart size={20} /></button>
+            <button className="icon-btn hide-sm" aria-label={t.header.cart}>
               <ShoppingCart size={20} /><span className="cart-count">0</span>
             </button>
             <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
@@ -106,7 +106,12 @@ export default function App() {
               <p className="lead">{t.hero.subtitle}</p>
               <div className="hero-cta">
                 <a className="btn btn-primary" href="#finder">{t.hero.ctaPrimary} <Arrow size={18} /></a>
-                <a className="btn btn-ghost" href="#featured">{t.hero.ctaSecondary}</a>
+                <a className="btn btn-ghost" href="#models">{t.hero.ctaSecondary}</a>
+              </div>
+              <div className="hero-highlights">
+                {t.hero.highlights.map((h, i) => (
+                  <span className="hpill" key={i}><Check size={15} /> {h}</span>
+                ))}
               </div>
               <div className="hero-stats">
                 <div className="stat"><b>{t.hero.stat1}</b><span>{t.hero.stat1l}</span></div>
@@ -116,15 +121,9 @@ export default function App() {
             </div>
             <div className="hero-visual">
               <div className="hero-blob" />
-              <div className="hero-card">
-                <div className="drop" />
-                <h3>{t.tiers[0].name}</h3>
-                <div className="rows">
-                  {t.tiers[0].desc.split(' · ').map((d, i) => (
-                    <div className="row" key={i}><Check size={16} /> {d}</div>
-                  ))}
-                </div>
-              </div>
+              <img className="hero-product" src="/products/amiad-compact.png" alt={t.mainFilters.items[0].name} />
+              <span className="hero-badge"><b>85%</b>{t.hero.badge}</span>
+              <span className="hero-gift"><Sparkles size={16} /> {t.mainFilter.gift}</span>
             </div>
           </div>
         </section>
