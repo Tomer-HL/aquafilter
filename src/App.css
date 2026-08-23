@@ -404,7 +404,7 @@ a.line:hover { color: #7fd4f5; }
 .model-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-primary-soft-2); }
 .model-media {
   position: relative; height: 300px; padding: 22px; overflow: hidden;
-  background: radial-gradient(circle at 50% 38%, #fff, var(--c-primary-soft));
+  background: #e7eff7;
   display: grid; place-items: center;
 }
 .model-media img { max-height: 256px; max-width: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 12px 18px rgba(10,60,90,.18)); }
