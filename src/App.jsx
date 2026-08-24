@@ -198,10 +198,18 @@ export default function App() {
             <div className="models-grid">
               {t.mainFilters.items.map((m, i) => (
                 <article className="model-card" key={i}>
-                  <a className="model-flyer" href="tel:0506830881" aria-label={m.name}>
+                  <div className="model-media">
+                    <span className="model-warranty"><ShieldCheck size={14} /> {m.warranty}</span>
                     <img src={m.img} alt={m.name} loading="lazy" />
-                  </a>
+                  </div>
                   <div className="model-body">
+                    <h3>{m.name}</h3>
+                    <p className="model-desc">{m.desc}</p>
+                    <div className="model-chips">
+                      {m.chips.map((c, j) => (
+                        <span className="model-chip" key={j}><Check size={13} /> {c}</span>
+                      ))}
+                    </div>
                     <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
                   </div>
                 </article>

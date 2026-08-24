@@ -394,30 +394,49 @@ a.line:hover { color: #7fd4f5; }
 .mf-chip.gift svg { color: #fff; }
 .mf-cta { text-align: center; margin-top: 26px; }
 
-/* ================= Main filter models (full flyer images) ================= */
-/* Show the complete original flyer image — never cropped. The container adapts
-   to the image's natural aspect ratio (object-fit: contain, height:auto). */
+/* ================= Main filter models lineup (clean product photos) ================= */
 .models-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
-  align-items: start;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: stretch;
 }
+@media (max-width: 1080px) { .models-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .models-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px)  { .models-grid { grid-template-columns: 1fr; } }
 .model-card {
   background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
   transition: transform .18s, box-shadow .2s, border-color .2s;
 }
 .model-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-primary-soft-2); }
-.model-flyer { display: block; line-height: 0; background: #fff; }
-.model-flyer img {
-  display: block;
-  width: 100%;
-  height: auto;            /* preserve aspect ratio — the whole flyer stays visible */
-  object-fit: contain;
+.model-media {
+  position: relative; height: 300px; padding: 16px; overflow: hidden;
+  background: #eef5fb;
+  display: grid; place-items: center;
 }
-.model-body { padding: 14px; }
-.model-card .btn { width: 100%; }
+/* whole product always visible — contain never crops, aspect ratio preserved */
+.model-media img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+.model-warranty {
+  position: absolute; top: 12px; inset-inline-start: 12px;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #fff; color: var(--c-primary-dark);
+  font-family: var(--font-head); font-weight: 700; font-size: 12px;
+  padding: 5px 10px; border-radius: 999px; box-shadow: var(--shadow-sm);
+}
+.model-warranty svg { color: var(--c-accent-dark); flex: none; }
+.model-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+.model-body h3 { font-size: 16px; line-height: 1.35; }
+.model-desc { font-size: 13.5px; color: var(--c-ink-2); margin-top: 8px; line-height: 1.6; flex: 1; }
+.model-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+.model-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: var(--c-primary-darker);
+  background: var(--c-primary-soft); border: 1px solid var(--c-line);
+  padding: 5px 9px; border-radius: 999px;
+}
+.model-chip svg { color: var(--c-primary); flex: none; }
+.model-card .btn { width: 100%; margin-top: auto; }
 
 /* ================= Hero: product photo + highlights ================= */
 .hero-product {
