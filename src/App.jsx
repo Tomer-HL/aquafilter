@@ -16,6 +16,7 @@ export default function App() {
   const [lang, setLang] = useState('he')
   const [menuOpen, setMenuOpen] = useState(false)
   const [annIdx, setAnnIdx] = useState(0)
+  const [zoom, setZoom] = useState(null)
   const t = content[lang]
   const rtl = t.dir === 'rtl'
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -29,6 +30,15 @@ export default function App() {
     const id = setInterval(() => setAnnIdx(i => (i + 1) % t.announcements.length), 4000)
     return () => clearInterval(id)
   }, [t.announcements.length])
+
+  // Lightbox: lock scroll + close on Escape while open
+  useEffect(() => {
+    if (!zoom) return
+    const onKey = e => { if (e.key === 'Escape') setZoom(null) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
+  }, [zoom])
 
   const toggleLang = () => setLang(l => (l === 'he' ? 'en' : 'he'))
 
@@ -56,10 +66,10 @@ export default function App() {
           <nav className="main-nav" aria-label="Main">
             <a href="#tiers">{t.nav.under}</a>
             <a href="#categories">{t.nav.whole}</a>
-            <a href="#featured">{t.nav.catalog}</a>
+            <a href="#tiers">{t.nav.catalog}</a>
             <a href="#categories">{t.nav.parts}</a>
             <a href="#finder">{t.nav.finder}</a>
-            <a className="sale" href="#featured">{t.nav.sale}</a>
+            <a className="sale" href="#tiers">{t.nav.sale}</a>
             <a href="#about">{t.nav.about}</a>
           </nav>
 
@@ -106,7 +116,7 @@ export default function App() {
               <p className="lead">{t.hero.subtitle}</p>
               <div className="hero-cta">
                 <a className="btn btn-primary" href="#finder">{t.hero.ctaPrimary} <Arrow size={18} /></a>
-                <a className="btn btn-ghost" href="#models">{t.hero.ctaSecondary}</a>
+                <a className="btn btn-ghost" href="#tiers">{t.hero.ctaSecondary}</a>
               </div>
               <div className="hero-highlights">
                 {t.hero.highlights.map((h, i) => (
@@ -128,7 +138,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Product tiers */}
+        {/* Recommended systems — our actual implemented products (single source: mainFilters) */}
         <section className="section" id="tiers">
           <div className="container">
             <div className="section-head">
@@ -136,21 +146,26 @@ export default function App() {
               <h2>{t.tiersHead.title}</h2>
               <p>{t.tiersHead.sub}</p>
             </div>
-            <div className="tiers-grid">
-              {t.tiers.map((tier, i) => {
-                const Icon = tierIcons[i]
-                return (
-                  <article className={`tier${i === 0 ? ' featured' : ''}`} key={i}>
-                    {tier.badge && <span className="tier-badge">{tier.badge}</span>}
-                    <div className="tier-icon"><Icon size={28} /></div>
-                    <h3>{tier.name}</h3>
-                    <div className="model">{tier.model}</div>
-                    <p className="desc">{tier.desc}</p>
-                    <div className="price">{tier.price}</div>
-                    <a className="btn btn-primary" href="#featured">{tier.cta} <Arrow size={16} /></a>
-                  </article>
-                )
-              })}
+            <div className="models-grid">
+              {t.mainFilters.items.map((m, i) => (
+                <article className="model-card" key={i}>
+                  <button className="model-media" onClick={() => setZoom(m)} aria-label={`${t.zoomLabel}: ${m.name}`}>
+                    <span className="model-warranty"><ShieldCheck size={14} /> {m.warranty}</span>
+                    <img src={m.img} alt={m.name} loading="lazy" />
+                    <span className="zoom-hint" aria-hidden="true"><Search size={16} /></span>
+                  </button>
+                  <div className="model-body">
+                    <h3>{m.name}</h3>
+                    <p className="model-desc">{m.desc}</p>
+                    <div className="model-chips">
+                      {m.chips.map((c, j) => (
+                        <span className="model-chip" key={j}><Check size={13} /> {c}</span>
+                      ))}
+                    </div>
+                    <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -183,37 +198,6 @@ export default function App() {
             </div>
             <div className="mf-cta">
               <a className="btn btn-primary" href="tel:0506830881"><Phone size={18} /> {t.mainFilter.cta}</a>
-            </div>
-          </div>
-        </section>
-
-        {/* Main filter models lineup */}
-        <section className="section models" id="models" style={{ paddingTop: 0 }}>
-          <div className="container">
-            <div className="section-head">
-              <span className="eyebrow">{t.mainFilters.eyebrow}</span>
-              <h2>{t.mainFilters.title}</h2>
-              <p>{t.mainFilters.sub}</p>
-            </div>
-            <div className="models-grid">
-              {t.mainFilters.items.map((m, i) => (
-                <article className="model-card" key={i}>
-                  <div className="model-media">
-                    <span className="model-warranty"><ShieldCheck size={14} /> {m.warranty}</span>
-                    <img src={m.img} alt={m.name} loading="lazy" />
-                  </div>
-                  <div className="model-body">
-                    <h3>{m.name}</h3>
-                    <p className="model-desc">{m.desc}</p>
-                    <div className="model-chips">
-                      {m.chips.map((c, j) => (
-                        <span className="model-chip" key={j}><Check size={13} /> {c}</span>
-                      ))}
-                    </div>
-                    <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
@@ -256,46 +240,11 @@ export default function App() {
                     <div>
                       <h3>{c.name}</h3>
                       <p>{c.desc}</p>
-                      <a className="cat-link" href="#featured">{c.link} <Arrow size={16} /></a>
+                      <a className="cat-link" href="#tiers">{c.link} <Arrow size={16} /></a>
                     </div>
                   </article>
                 )
               })}
-            </div>
-          </div>
-        </section>
-
-        {/* Featured products */}
-        <section className="section" id="featured">
-          <div className="container">
-            <div className="section-head">
-              <span className="eyebrow">{t.featuredHead.eyebrow}</span>
-              <h2>{t.featuredHead.title}</h2>
-            </div>
-            <div className="prod-grid">
-              {t.products.map((p, i) => (
-                <article className="prod" key={i}>
-                  <div className="prod-media">
-                    <span className="prod-tag">{p.tag}</span>
-                    <button className="prod-wish" aria-label="Add to wishlist"><Heart size={18} /></button>
-                    <div className="pdrop" />
-                  </div>
-                  <div className="prod-body">
-                    <div className="stars" aria-label={`${p.rating} / 5`}>
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star key={s} size={15} fill={s < p.rating ? '#f5b301' : 'none'} stroke={s < p.rating ? '#f5b301' : '#d5dee3'} />
-                      ))}
-                    </div>
-                    <h3>{p.name}</h3>
-                    <div className="prod-price">
-                      <span className="now">{p.price}</span>
-                      {p.old && <span className="was">{p.old}</span>}
-                      <span className="vat">{t.inclVat}</span>
-                    </div>
-                    <button className="btn btn-primary"><ShoppingCart size={16} /> {t.addToCart}</button>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
@@ -365,7 +314,7 @@ export default function App() {
             </div>
             <div className="foot-col">
               <h4>{t.footer.colShop}</h4>
-              <ul>{t.footer.shopLinks.map(l => <li key={l}><a href="#featured">{l}</a></li>)}</ul>
+              <ul>{t.footer.shopLinks.map(l => <li key={l}><a href="#tiers">{l}</a></li>)}</ul>
             </div>
             <div className="foot-col">
               <h4>{t.footer.colInfo}</h4>
@@ -383,6 +332,17 @@ export default function App() {
           <div className="foot-bottom">© {new Date().getFullYear()} {t.brand.name} · {t.footer.rights}</div>
         </div>
       </footer>
+
+      {/* Product image lightbox */}
+      {zoom && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label={zoom.name} onClick={() => setZoom(null)}>
+          <button className="lightbox-close" onClick={() => setZoom(null)} aria-label={t.close}><X size={26} /></button>
+          <figure className="lightbox-fig" onClick={e => e.stopPropagation()}>
+            <img src={zoom.img} alt={zoom.name} />
+            <figcaption>{zoom.name}</figcaption>
+          </figure>
+        </div>
+      )}
     </>
   )
 }

@@ -411,12 +411,26 @@ a.line:hover { color: #7fd4f5; }
 }
 .model-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-primary-soft-2); }
 .model-media {
-  position: relative; height: 300px; padding: 16px; overflow: hidden;
-  background: #eef5fb;
+  position: relative; width: 100%; height: 330px; padding: 14px; overflow: hidden;
+  background: #eef5fb; border: 0; cursor: zoom-in;
   display: grid; place-items: center;
 }
-/* whole product always visible — contain never crops, aspect ratio preserved */
-.model-media img { max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain; }
+/* Product scales as large as possible to fill the area — contain keeps the whole
+   product visible (never cropped) and preserves aspect ratio (never distorted). */
+.model-media img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+  transition: transform .25s ease;
+}
+.model-media:hover img { transform: scale(1.045); }
+.zoom-hint {
+  position: absolute; inset-block-end: 10px; inset-inline-end: 10px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.92); color: var(--c-primary-dark);
+  display: grid; place-items: center; box-shadow: var(--shadow-sm);
+  opacity: .82; transition: opacity .15s;
+}
+.model-media:hover .zoom-hint { opacity: 1; }
+.model-media:focus-visible { outline: 3px solid var(--c-primary); outline-offset: -3px; }
 .model-warranty {
   position: absolute; top: 12px; inset-inline-start: 12px;
   display: inline-flex; align-items: center; gap: 5px;
@@ -482,4 +496,37 @@ a.line:hover { color: #7fd4f5; }
   .brand-name { font-size: 15px; }
   .lang-toggle { padding: 6px 10px; font-size: 13px; gap: 4px; }
   .phone-pill { padding-inline: 4px; }
+}
+
+/* ================= Product image lightbox ================= */
+.lightbox {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(10, 25, 40, .82); backdrop-filter: blur(2px);
+  display: grid; place-items: center; padding: 24px;
+  animation: lb-fade .16s ease;
+}
+@keyframes lb-fade { from { opacity: 0 } to { opacity: 1 } }
+.lightbox-fig {
+  margin: 0; max-width: min(920px, 95vw); max-height: 90vh;
+  display: flex; flex-direction: column; align-items: center;
+}
+.lightbox-fig img {
+  max-width: 100%; max-height: 82vh; width: auto; height: auto;
+  object-fit: contain; border-radius: 14px; background: #eef5fb;
+  box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+.lightbox-fig figcaption {
+  color: #fff; margin-top: 14px; text-align: center;
+  font-family: var(--font-head); font-weight: 700; font-size: 17px;
+}
+.lightbox-close {
+  position: fixed; top: 18px; inset-inline-end: 18px;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.16); color: #fff;
+  display: grid; place-items: center; transition: background .15s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,.3); }
+@media (max-width: 560px) {
+  .lightbox { padding: 14px; }
+  .lightbox-fig img { max-height: 76vh; }
 }

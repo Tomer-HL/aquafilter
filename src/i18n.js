@@ -3,6 +3,8 @@ export const content = {
   he: {
     dir: 'rtl',
     label: 'עברית',
+    zoomLabel: 'הגדלת תמונה',
+    close: 'סגירה',
     brand: { name: 'א.מ שיווק מסננים', tagline: 'למניעת אבנית' },
     services: 'וסתי לחץ מים · שסתומי אל־חוזר · החלפת ברזים',
     announcements: [
@@ -33,7 +35,7 @@ export const content = {
       stat2: '40+', stat2l: 'שנות ניסיון',
       stat3: '3 שנות', stat3l: 'אחריות מלאה',
     },
-    tiersHead: { eyebrow: 'מערכות מומלצות', title: 'בחרו מערכת סינון מים', sub: 'ארבע רמות סינון — לכל צורך ולכל תקציב' },
+    tiersHead: { eyebrow: 'מערכות מומלצות', title: 'בחרו מערכת סינון מים', sub: 'המסננים הראשיים המשולבים שאנחנו מתקינים — מניעת אבנית עד 85% וסינון 50 מיקרון (רשת נירוסטה)' },
     tiers: [
       { badge: 'הכי נמכר', name: 'מערכת אוסמוזה פרימיום', model: 'BE WELL 6', desc: 'תת-כיורי · אוסמוזה הפוכה · 6 שלבי סינון · מותאם למי התפלה · אנטי-בקטריאלי', price: '₪2,000', cta: 'לפרטים' },
       { badge: '', name: 'מערכת טיהור משודרגת', model: 'BE WELL 4', desc: 'תת-כיורי · מערכת טיהור 4 שלבית · מותאם למי התפלה · אנטי-בקטריאלי', price: '₪1,150', cta: 'לפרטים' },
@@ -124,6 +126,8 @@ export const content = {
   en: {
     dir: 'ltr',
     label: 'English',
+    zoomLabel: 'Enlarge image',
+    close: 'Close',
     brand: { name: 'A.M Filters', tagline: 'Scale Prevention' },
     services: 'Pressure regulators · Check valves · Faucet replacement',
     announcements: [
@@ -154,7 +158,7 @@ export const content = {
       stat2: '40+', stat2l: 'years of experience',
       stat3: '3-year', stat3l: 'full warranty',
     },
-    tiersHead: { eyebrow: 'Recommended systems', title: 'Choose a filtration system', sub: 'Four levels of filtration — for every need and budget' },
+    tiersHead: { eyebrow: 'Recommended systems', title: 'Choose a filtration system', sub: 'The combined main filters we install — up to 85% scale prevention and 50-micron filtration (stainless mesh)' },
     tiers: [
       { badge: 'Best seller', name: 'Premium Reverse Osmosis', model: 'BE WELL 6', desc: 'Under-sink · Reverse osmosis · 6-stage filtration · Desalination-ready · Anti-bacterial', price: '₪2,000', cta: 'Details' },
       { badge: '', name: 'Upgraded Purifier', model: 'BE WELL 4', desc: 'Under-sink · 4-stage purification · Desalination-ready · Anti-bacterial', price: '₪1,150', cta: 'Details' },
