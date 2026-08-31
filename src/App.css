@@ -418,7 +418,7 @@ a.line:hover { color: #7fd4f5; }
    It may fill/cover/crop freely; it never affects the product image. */
 .model-water {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('/products/water-bg.jpg') center bottom / cover no-repeat;
+  background: url('/products/water-splash.png') center bottom / cover no-repeat;
 }
 /* Product image — ALWAYS shown complete (contain), never cropped. It sits
    ABOVE the water layer; the two have completely independent sizing rules. */
@@ -527,7 +527,7 @@ a.line:hover { color: #7fd4f5; }
 }
 .lightbox-frame .model-water {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('/products/water-bg.jpg') center bottom / cover no-repeat;
+  background: url('/products/water-splash.png') center bottom / cover no-repeat;
 }
 .lightbox-frame img {
   position: relative; z-index: 1;
