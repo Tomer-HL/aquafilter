@@ -414,13 +414,20 @@ a.line:hover { color: #7fd4f5; }
   position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
   background: #eaf3f9; border: 0; cursor: zoom-in; display: block;
 }
-/* The complete product photo is always shown — never cropped. `contain` fits
-   the whole image inside the uniform frame regardless of its natural aspect
-   ratio; the light backdrop fills any letterbox cleanly. */
+/* Decorative water-splash layer — a SEPARATE layer behind the product.
+   It may fill/cover/crop freely; it never affects the product image. */
+.model-water {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('/products/water-bg.jpg') center bottom / cover no-repeat;
+}
+/* Product image — ALWAYS shown complete (contain), never cropped. It sits
+   ABOVE the water layer; the two have completely independent sizing rules. */
 .model-media img {
+  position: relative; z-index: 1;
   width: 100%; height: 100%; object-fit: contain; display: block;
   padding: 6px; transition: transform .25s ease;
 }
+.model-warranty, .zoom-hint { z-index: 2; }
 .model-media:hover img { transform: scale(1.045); }
 .zoom-hint {
   position: absolute; inset-block-end: 10px; inset-inline-end: 10px;
@@ -510,10 +517,21 @@ a.line:hover { color: #7fd4f5; }
   margin: 0; max-width: min(920px, 95vw); max-height: 90vh;
   display: flex; flex-direction: column; align-items: center;
 }
-.lightbox-fig img {
-  max-width: 100%; max-height: 82vh; width: auto; height: auto;
-  object-fit: contain; border-radius: 14px; background: #eef5fb;
+/* Modal frame: 3:4 like the source images, so `contain` fills it exactly with
+   zero cropping. The water layer sits behind; the product image stays complete. */
+.lightbox-frame {
+  position: relative; aspect-ratio: 3 / 4;
+  max-height: 82vh; max-width: min(620px, 92vw);
+  border-radius: 14px; overflow: hidden; background: #eef5fb;
   box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+.lightbox-frame .model-water {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: url('/products/water-bg.jpg') center bottom / cover no-repeat;
+}
+.lightbox-frame img {
+  position: relative; z-index: 1;
+  width: 100%; height: 100%; object-fit: contain; display: block; padding: 12px;
 }
 .lightbox-fig figcaption {
   color: #fff; margin-top: 14px; text-align: center;
@@ -528,5 +546,5 @@ a.line:hover { color: #7fd4f5; }
 .lightbox-close:hover { background: rgba(255,255,255,.3); }
 @media (max-width: 560px) {
   .lightbox { padding: 14px; }
-  .lightbox-fig img { max-height: 76vh; }
+  .lightbox-frame { max-height: 76vh; }
 }

@@ -150,6 +150,7 @@ export default function App() {
               {t.mainFilters.items.map((m, i) => (
                 <article className="model-card" key={i}>
                   <button className="model-media" onClick={() => setZoom(m)} aria-label={`${t.zoomLabel}: ${m.name}`}>
+                    <span className="model-water" aria-hidden="true" />
                     <span className="model-warranty"><ShieldCheck size={14} /> {m.warranty}</span>
                     <img src={m.img} alt={m.name} loading="lazy" />
                     <span className="zoom-hint" aria-hidden="true"><Search size={16} /></span>
@@ -338,7 +339,10 @@ export default function App() {
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={zoom.name} onClick={() => setZoom(null)}>
           <button className="lightbox-close" onClick={() => setZoom(null)} aria-label={t.close}><X size={26} /></button>
           <figure className="lightbox-fig" onClick={e => e.stopPropagation()}>
-            <img src={zoom.img} alt={zoom.name} />
+            <div className="lightbox-frame">
+              <span className="model-water" aria-hidden="true" />
+              <img src={zoom.img} alt={zoom.name} />
+            </div>
             <figcaption>{zoom.name}</figcaption>
           </figure>
         </div>
