@@ -316,9 +316,9 @@ html, body { overflow-x: clip; }
 .drawer a:hover { background: var(--c-primary-soft); color: var(--c-primary-dark); }
 
 /* ================= Responsive ================= */
-/* Collapse the crowded inline nav into the hamburger before it can overflow.
-   All links remain available in the drawer. */
-@media (max-width: 1536px) {
+/* Keep the primary nav visible on laptops/desktops; collapse to the hamburger
+   only on tablet and below. All links remain available in the drawer. */
+@media (max-width: 1024px) {
   .main-nav { display: none; }
   .burger { display: grid; }
 }

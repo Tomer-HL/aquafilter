@@ -1,11 +1,21 @@
 import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
-  Search, ShoppingCart, Heart, Phone, Menu, X, Globe, Check,
+  Search, Phone, Menu, X, Globe, Check,
   ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram, MessageCircle,
 } from 'lucide-react'
 import { content, brands } from './i18n.js'
 import './App.css'
+
+// Single nav model — one label per real on-page section, shared by the
+// desktop bar and the mobile drawer so every link leads somewhere distinct.
+const NAV = [
+  { key: 'catalog', href: '#tiers' },
+  { key: 'whole',   href: '#categories' },
+  { key: 'sale',    href: '#main-filter', sale: true },
+  { key: 'finder',  href: '#finder' },
+  { key: 'about',   href: '#about' },
+]
 
 const tierIcons = [Droplets, Filter, Droplet, ShieldCheck, Filter]
 const featureIcons = [Sparkles, Award, Wrench, ShieldCheck]
@@ -64,22 +74,13 @@ export default function App() {
           </a>
 
           <nav className="main-nav" aria-label="Main">
-            <a href="#tiers">{t.nav.under}</a>
-            <a href="#categories">{t.nav.whole}</a>
-            <a href="#tiers">{t.nav.catalog}</a>
-            <a href="#categories">{t.nav.parts}</a>
-            <a href="#finder">{t.nav.finder}</a>
-            <a className="sale" href="#tiers">{t.nav.sale}</a>
-            <a href="#about">{t.nav.about}</a>
+            {NAV.map(n => (
+              <a key={n.key} href={n.href} className={n.sale ? 'sale' : undefined}>{t.nav[n.key]}</a>
+            ))}
           </nav>
 
           <div className="header-actions">
             <a className="phone-pill" href="tel:0506830881"><Phone size={17} /><span>{t.header.phone}</span></a>
-            <button className="icon-btn hide-sm" aria-label={t.header.search}><Search size={20} /></button>
-            <button className="icon-btn hide-sm" aria-label="Wishlist"><Heart size={20} /></button>
-            <button className="icon-btn hide-sm" aria-label={t.header.cart}>
-              <ShoppingCart size={20} /><span className="cart-count">0</span>
-            </button>
             <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
               <Globe size={16} /> {lang === 'he' ? 'EN' : 'עב'}
             </button>
@@ -98,8 +99,8 @@ export default function App() {
           </span>
           <button className="icon-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
         </div>
-        {Object.values(t.nav).map((label, i) => (
-          <a key={i} href="#tiers" onClick={() => setMenuOpen(false)}>{label}</a>
+        {NAV.map(n => (
+          <a key={n.key} href={n.href} className={n.sale ? 'sale' : undefined} onClick={() => setMenuOpen(false)}>{t.nav[n.key]}</a>
         ))}
         <button className="lang-toggle" style={{ marginTop: 14 }} onClick={toggleLang}>
           <Globe size={16} /> {t.label === 'עברית' ? 'Switch to English' : 'עבור לעברית'}
