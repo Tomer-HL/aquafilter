@@ -27,6 +27,8 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [annIdx, setAnnIdx] = useState(0)
   const [zoom, setZoom] = useState(null)
+  const [nlEmail, setNlEmail] = useState('')
+  const [nlDone, setNlDone] = useState(false)
   const t = content[lang]
   const rtl = t.dir === 'rtl'
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -295,10 +297,19 @@ export default function App() {
         <div className="container">
           <div className="newsletter">
             <h3>{t.footer.newsletter}</h3>
-            <form onSubmit={e => e.preventDefault()}>
-              <input type="email" placeholder={t.footer.emailPh} aria-label={t.footer.emailPh} required />
+            <form onSubmit={e => { e.preventDefault(); setNlDone(true); setNlEmail('') }}>
+              <label className="sr-only" htmlFor="nl-email">{t.footer.emailPh}</label>
+              <input
+                id="nl-email" type="email" placeholder={t.footer.emailPh}
+                value={nlEmail}
+                onChange={e => { setNlEmail(e.target.value); if (nlDone) setNlDone(false) }}
+                required autoComplete="email"
+              />
               <button className="btn" type="submit">{t.footer.subscribe}</button>
             </form>
+            <p className="newsletter-msg" role="status" aria-live="polite">
+              {nlDone ? t.footer.subscribed : ''}
+            </p>
           </div>
 
           <div className="foot-grid">

@@ -120,6 +120,7 @@ export const content = {
       newsletter: 'הצטרפו לרשימת התפוצה וקבלו מבצעים',
       subscribe: 'הרשמה',
       emailPh: 'כתובת אימייל',
+      subscribed: 'תודה! נרשמתם לרשימת התפוצה.',
     },
   },
 
@@ -243,6 +244,7 @@ export const content = {
       newsletter: 'Join our list for deals & offers',
       subscribe: 'Subscribe',
       emailPh: 'Email address',
+      subscribed: "Thanks! You're on the list.",
     },
   },
 }

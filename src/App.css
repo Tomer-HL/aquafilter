@@ -280,6 +280,11 @@ html, body { overflow-x: clip; }
   font-size: 15px; min-height: 46px; color: var(--c-ink);
 }
 .newsletter .btn { background: #fff; color: var(--c-primary-dark); }
+.newsletter-msg {
+  width: 100%; margin: 10px 0 0; text-align: start;
+  color: #eaf7fd; font-weight: 600; font-size: 14.5px;
+}
+.newsletter-msg:empty { margin: 0; height: 0; overflow: hidden; }
 
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 34px; }
 .foot-brand .brand { color: #fff; margin-bottom: 14px; }

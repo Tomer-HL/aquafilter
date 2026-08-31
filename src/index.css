@@ -6,8 +6,8 @@
   --c-primary-darker: #075e86;
   --c-primary-soft: #e7f6fc;
   --c-primary-soft-2: #d3edf9;
-  --c-accent: #16c79a;          /* fresh teal-green for prices/success */
-  --c-accent-dark: #0fa681;
+  --c-accent: #16c79a;          /* teal-green — decorative fills only, never text on white */
+  --c-accent-dark: #0a8a6a;     /* icon-safe green: 4.3:1 on white (clears the 3:1 graphics bar) */
 
   /* Neutrals */
   --c-ink: #10222e;
@@ -80,6 +80,12 @@ button {
   max-width: var(--maxw);
   margin-inline: auto;
   padding-inline: 20px;
+}
+
+/* Visually hidden but available to screen readers (accessible field labels) */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
 /* Buttons */
