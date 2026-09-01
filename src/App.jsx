@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
-  Search, Phone, Menu, X, Globe, Check,
+  Search, Phone, Menu, X, Globe, Check, Gift, Flame, PiggyBank,
   ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram, MessageCircle,
 } from 'lucide-react'
 import { content, brands } from './i18n.js'
 import './App.css'
+
+// Maps banner-benefit keys → matching Lucide icons (kept semantically close to
+// the original banner icons: drop / faucet-pipes / boiler / savings).
+const benefitIconMap = { drop: Droplet, pipes: Wrench, boiler: Flame, savings: PiggyBank }
 
 // Single nav model — one label per real on-page section, shared by the
 // desktop bar and the mobile drawer so every link leads somewhere distinct.
@@ -26,7 +30,8 @@ export default function App() {
   const [lang, setLang] = useState('he')
   const [menuOpen, setMenuOpen] = useState(false)
   const [annIdx, setAnnIdx] = useState(0)
-  const [zoom, setZoom] = useState(null)
+  const [details, setDetails] = useState(null)  // product-details modal (level 1)
+  const [zoom, setZoom] = useState(null)         // enlarged image lightbox (level 2)
   const [nlEmail, setNlEmail] = useState('')
   const [nlDone, setNlDone] = useState(false)
   const t = content[lang]
@@ -43,14 +48,19 @@ export default function App() {
     return () => clearInterval(id)
   }, [t.announcements.length])
 
-  // Lightbox: lock scroll + close on Escape while open
+  // Modals: lock scroll while either layer is open; Escape closes the topmost
+  // layer first (enlarged image, then the details modal).
   useEffect(() => {
-    if (!zoom) return
-    const onKey = e => { if (e.key === 'Escape') setZoom(null) }
+    if (!details && !zoom) return
+    const onKey = e => {
+      if (e.key !== 'Escape') return
+      if (zoom) setZoom(null)
+      else setDetails(null)
+    }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
-  }, [zoom])
+  }, [details, zoom])
 
   const toggleLang = () => setLang(l => (l === 'he' ? 'en' : 'he'))
 
@@ -152,7 +162,7 @@ export default function App() {
             <div className="models-grid">
               {t.mainFilters.items.map((m, i) => (
                 <article className="model-card" key={i}>
-                  <button className="model-media" onClick={() => setZoom(m)} aria-label={`${t.zoomLabel}: ${m.name}`}>
+                  <button className="model-media" onClick={() => setDetails(m)} aria-label={`${t.mainFilters.detailsCta}: ${m.name}`}>
                     <span className="model-water" aria-hidden="true" />
                     <span className="model-warranty"><ShieldCheck size={14} /> {m.warranty}</span>
                     <img src={m.img} alt={m.name} loading="lazy" />
@@ -166,7 +176,10 @@ export default function App() {
                         <span className="model-chip" key={j}><Check size={13} /> {c}</span>
                       ))}
                     </div>
-                    <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
+                    <div className="model-actions">
+                      <button className="btn btn-ghost" onClick={() => setDetails(m)}>{t.mainFilters.detailsCta}</button>
+                      <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -346,7 +359,59 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Product image lightbox */}
+      {/* Product details modal (level 1) — full banner information */}
+      {details && (
+        <div className="pdetail" role="dialog" aria-modal="true" aria-labelledby="pd-title" onClick={() => setDetails(null)}>
+          <div className="pdetail-panel" onClick={e => e.stopPropagation()}>
+            <button className="pdetail-close" onClick={() => setDetails(null)} aria-label={t.close}><X size={24} /></button>
+            <div className="pdetail-grid">
+              <div className="pdetail-media-col">
+                <button className="pdetail-media" onClick={() => setZoom(details)} aria-label={t.mainFilters.zoomHint}>
+                  <span className="model-water" aria-hidden="true" />
+                  <img src={details.img} alt={details.name} />
+                  <span className="zoom-hint" aria-hidden="true"><Search size={16} /></span>
+                </button>
+                <p className="pdetail-hint">{t.mainFilters.zoomHint}</p>
+                <p className="pdetail-disclaimer">*{t.mainFilters.disclaimer}</p>
+              </div>
+
+              <div className="pdetail-info">
+                <h2 id="pd-title">{details.name}</h2>
+                {details.model && <span className="pdetail-model">{details.model}</span>}
+                <p className="pdetail-desc">{details.bannerDesc}</p>
+
+                <div className="pdetail-tags">
+                  <span className="ptag ptag-warranty"><ShieldCheck size={15} /> {details.warranty}</span>
+                  <span className="ptag"><Wrench size={15} /> {t.mainFilters.install}</span>
+                  {details.madeInIsrael && <span className="ptag ptag-il"><Award size={15} /> {t.mainFilters.madeInIsrael}</span>}
+                </div>
+
+                <div className="pdetail-gift"><Gift size={18} /> <b>{t.mainFilters.giftLabel}</b> {t.mainFilters.gift}</div>
+
+                <h3 className="pdetail-subhead">{t.mainFilters.benefitsHead}</h3>
+                <ul className="pdetail-benefits">
+                  {t.mainFilters.benefits.map((b, j) => {
+                    const Icon = benefitIconMap[b.icon] || Check
+                    return <li key={j}><span className="pb-ic"><Icon size={18} /></span> {b.label}</li>
+                  })}
+                </ul>
+
+                <div className="pdetail-certs">
+                  <span className="pdetail-certs-label">{t.mainFilters.certsLabel}:</span>
+                  {details.certs.map((c, j) => <span className="pcert" key={j}>{c}</span>)}
+                </div>
+
+                <div className="pdetail-actions">
+                  <a className="btn btn-primary" href="tel:0506830881"><Phone size={16} /> {t.mainFilters.orderCta}</a>
+                  <a className="btn btn-ghost" href={t.mainFilters.madragUrl} target="_blank" rel="noopener noreferrer"><Star size={16} /> {t.mainFilters.madragLabel}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Enlarged product image (level 2) — opened from the details modal */}
       {zoom && (
         <div className="lightbox" role="dialog" aria-modal="true" aria-label={zoom.name} onClick={() => setZoom(null)}>
           <button className="lightbox-close" onClick={() => setZoom(null)} aria-label={t.close}><X size={26} /></button>
