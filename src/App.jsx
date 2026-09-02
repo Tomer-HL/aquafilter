@@ -2,10 +2,17 @@ import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
   Search, Phone, Menu, X, Globe, Check, Gift, Flame, PiggyBank,
-  ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram, MessageCircle,
+  ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram,
 } from 'lucide-react'
-import { content, brands } from './i18n.js'
+import { content } from './i18n.js'
+import { LEGAL } from './legal.js'
+import { WhatsAppIcon } from './icons.jsx'
+import Questionnaire from './Questionnaire.jsx'
+import Accessibility from './Accessibility.jsx'
 import './App.css'
+
+const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
+const PHONE = '0506830881'
 
 // Maps banner-benefit keys → matching Lucide icons (kept semantically close to
 // the original banner icons: drop / faucet-pipes / boiler / savings).
@@ -34,6 +41,7 @@ export default function App() {
   const [zoom, setZoom] = useState(null)         // enlarged image lightbox (level 2)
   const [nlEmail, setNlEmail] = useState('')
   const [nlDone, setNlDone] = useState(false)
+  const [legal, setLegal] = useState(null)       // 'privacy' | 'a11y' | null
   const t = content[lang]
   const rtl = t.dir === 'rtl'
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -51,16 +59,17 @@ export default function App() {
   // Modals: lock scroll while either layer is open; Escape closes the topmost
   // layer first (enlarged image, then the details modal).
   useEffect(() => {
-    if (!details && !zoom) return
+    if (!details && !zoom && !legal) return
     const onKey = e => {
       if (e.key !== 'Escape') return
       if (zoom) setZoom(null)
-      else setDetails(null)
+      else if (details) setDetails(null)
+      else setLegal(null)
     }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
     return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = '' }
-  }, [details, zoom])
+  }, [details, zoom, legal])
 
   const toggleLang = () => setLang(l => (l === 'he' ? 'en' : 'he'))
 
@@ -266,17 +275,10 @@ export default function App() {
           </div>
         </section>
 
-        {/* Finder CTA */}
-        <section className="section" style={{ paddingTop: 0 }} id="finder">
-          <div className="container">
-            <div className="finder">
-              <span className="eyebrow">{t.finder.eyebrow}</span>
-              <h2>{t.finder.title}</h2>
-              <p>{t.finder.sub}</p>
-              <a className="btn" href="#top">{t.finder.cta} <Arrow size={18} /></a>
-            </div>
-          </div>
-        </section>
+        {/* Smart questionnaire — weighted recommendation engine (id=finder for nav) */}
+        <div id="finder">
+          <Questionnaire lang={lang} items={t.mainFilters.items} onDetails={setDetails} waUrl={WA_URL} phone={PHONE} />
+        </div>
 
         {/* About */}
         <section className="section about" id="about" style={{ paddingTop: 0 }}>
@@ -299,7 +301,7 @@ export default function App() {
           <div className="container">
             <h3>{t.brandsHead.title}</h3>
             <div className="brand-row">
-              {brands.map(b => <span className="brand-chip" key={b}>{b}</span>)}
+              {t.brandsList.map(b => <span className="brand-chip" key={b}>{b}</span>)}
             </div>
           </div>
         </section>
@@ -335,7 +337,8 @@ export default function App() {
               <div className="foot-social">
                 <a href="#top" aria-label="Facebook"><Facebook size={18} /></a>
                 <a href="#top" aria-label="Instagram"><Instagram size={18} /></a>
-                <a href="https://wa.me/972506830881" aria-label="WhatsApp"><MessageCircle size={18} /></a>
+                <a className="foot-wa" href={WA_URL} target="_blank" rel="noopener noreferrer"
+                   aria-label={t.waLabel}><WhatsAppIcon size={18} /></a>
               </div>
             </div>
             <div className="foot-col">
@@ -355,7 +358,14 @@ export default function App() {
             </div>
           </div>
 
-          <div className="foot-bottom">© {new Date().getFullYear()} {t.brand.name} · {t.footer.rights}</div>
+          <div className="foot-bottom">
+            <span>© {new Date().getFullYear()} {t.brand.name} · {t.footer.rights}</span>
+            <span className="foot-legal">
+              <button className="foot-legal-link" onClick={() => setLegal('privacy')}>{LEGAL[lang].privacyTitle}</button>
+              <span aria-hidden="true">·</span>
+              <button className="foot-legal-link" onClick={() => setLegal('a11y')}>{LEGAL[lang].a11yTitle}</button>
+            </span>
+          </div>
         </div>
       </footer>
 
@@ -424,6 +434,38 @@ export default function App() {
           </figure>
         </div>
       )}
+
+      {/* Legal modal — privacy policy / accessibility statement */}
+      {legal && (() => {
+        const L = LEGAL[lang]
+        const isPriv = legal === 'privacy'
+        const title = isPriv ? L.privacyTitle : L.a11yTitle
+        const updated = isPriv ? L.privacyUpdated : L.a11yUpdated
+        const sections = isPriv ? L.privacy : L.a11y
+        return (
+          <div className="legal" role="dialog" aria-modal="true" aria-labelledby="legal-title" onClick={() => setLegal(null)}>
+            <div className="legal-panel" onClick={e => e.stopPropagation()}>
+              <button className="pdetail-close" onClick={() => setLegal(null)} aria-label={t.close}><X size={24} /></button>
+              <h2 id="legal-title">{title}</h2>
+              <p className="legal-updated">{updated}</p>
+              {sections.map((sec, i) => (
+                <section className="legal-sec" key={i}>
+                  <h3>{sec.h}</h3>
+                  {sec.p.map((para, j) => <p key={j}>{para}</p>)}
+                </section>
+              ))}
+            </div>
+          </div>
+        )
+      })()}
+
+      {/* Floating WhatsApp button (opens chat in a new tab) */}
+      <a className="wa-fab" href={WA_URL} target="_blank" rel="noopener noreferrer" aria-label={t.waLabel}>
+        <WhatsAppIcon size={30} />
+      </a>
+
+      {/* Accessibility widget (IS 5568) */}
+      <Accessibility lang={lang} onStatement={() => setLegal('a11y')} />
     </>
   )
 }
