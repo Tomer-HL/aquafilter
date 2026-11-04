@@ -159,7 +159,7 @@ html, body { overflow-x: clip; }
 .feature h3 { font-size: 17px; }
 .feature p { font-size: 14px; color: var(--c-ink-2); margin-top: 8px; line-height: 1.7; }
 
-/* Main-filter benefit cards — bolder icon tile + hover lift + compact phone grid */
+/* Benefit + Features cards — bolder icon tile + hover lift + compact phone grid */
 .benefit { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
 .benefit .fi {
   width: 60px; height: 60px; border-radius: 16px; margin-bottom: 18px;

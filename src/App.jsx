@@ -255,12 +255,12 @@ export default function App() {
               <span className="eyebrow">{t.featuresHead.eyebrow}</span>
               <h2>{t.featuresHead.title}</h2>
             </div>
-            <div className="features-grid">
+            <div className="features-grid benefits-grid">
               {t.features.map((f, i) => {
                 const Icon = featureIcons[i]
                 return (
-                  <div className="feature" key={i}>
-                    <div className="fi"><Icon size={24} /></div>
+                  <div className="feature benefit" key={i}>
+                    <div className="fi"><Icon size={28} strokeWidth={2} aria-hidden="true" /></div>
                     <h3>{f.title}</h3>
                     <p>{f.desc}</p>
                   </div>
