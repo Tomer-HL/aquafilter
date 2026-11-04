@@ -407,8 +407,36 @@ a.line:hover { color: #7fd4f5; }
   align-items: stretch;
 }
 @media (max-width: 1080px) { .models-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 760px)  { .models-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 460px)  { .models-grid { grid-template-columns: 1fr; } }
+/* Mobile: horizontal swipe carousel instead of stacked grid */
+@media (max-width: 760px) {
+  .models-grid {
+    display: flex; gap: 14px;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin-inline: -20px; padding: 4px 20px 14px; scroll-padding-inline: 20px;
+    scrollbar-width: none;
+  }
+  .models-grid::-webkit-scrollbar { display: none; }
+  .models-grid > .model-card { flex: 0 0 min(78%, 320px); scroll-snap-align: center; }
+}
+
+/* Swipe hint — mobile carousel only */
+.swipe-hint { display: none; }
+@media (max-width: 760px) {
+  .swipe-hint {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    margin: -6px 0 12px;
+    font-size: 13px; font-weight: 600; color: var(--c-primary-dark);
+    transition: opacity .35s ease, max-height .35s ease, margin .35s ease;
+    max-height: 30px; overflow: hidden;
+  }
+  .swipe-hint.is-hidden { opacity: 0; max-height: 0; margin: 0; }
+  .swipe-arrow { animation: swipe-nudge 1.4s ease-in-out infinite; }
+  .swipe-arrow.rtl { animation-name: swipe-nudge-rtl; }
+}
+@keyframes swipe-nudge     { 0%,100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+@keyframes swipe-nudge-rtl { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
+@media (prefers-reduced-motion: reduce) { .swipe-arrow { animation: none; } }
 .model-card {
   background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius);
   overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
   Search, Phone, Menu, X, Globe, Check, Gift, Flame, PiggyBank,
-  ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram,
+  ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Star, MapPin, Clock, Mail, Facebook, Instagram,
 } from 'lucide-react'
 import { content } from './i18n.js'
 import { LEGAL } from './legal.js'
@@ -42,6 +42,7 @@ export default function App() {
   const [nlEmail, setNlEmail] = useState('')
   const [nlDone, setNlDone] = useState(false)
   const [legal, setLegal] = useState(null)       // 'privacy' | 'a11y' | null
+  const [swiped, setSwiped] = useState(false)    // hides the mobile swipe hint after first scroll
   const t = content[lang]
   const rtl = t.dir === 'rtl'
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -168,7 +169,13 @@ export default function App() {
               <h2>{t.tiersHead.title}</h2>
               <p>{t.tiersHead.sub}</p>
             </div>
-            <div className="models-grid">
+            <div className={`swipe-hint${swiped ? ' is-hidden' : ''}`} aria-hidden="true">
+              <span>{t.mainFilters.swipeHint.replace('{n}', t.mainFilters.items.length)}</span>
+              {lang === 'he'
+                ? <ChevronLeft size={18} className="swipe-arrow rtl" />
+                : <ChevronRight size={18} className="swipe-arrow" />}
+            </div>
+            <div className="models-grid" onScroll={() => { if (!swiped) setSwiped(true) }}>
               {t.mainFilters.items.map((m, i) => (
                 <article className="model-card" key={i}>
                   <button className="model-media" onClick={() => setDetails(m)} aria-label={`${t.mainFilters.detailsCta}: ${m.name}`}>

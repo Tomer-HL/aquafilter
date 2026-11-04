@@ -82,6 +82,7 @@ export const content = {
       madragUrl: 'https://www.midrag.co.il/SpCard/Sp/17444?sectorId=4&listId=1',
       madragLabel: 'המלצות לקוחות במדרג',
       zoomHint: 'לחצו על התמונה להגדלה',
+      swipeHint: 'החליקו לצפייה בכל {n} הדגמים',
       /* bannerDesc / certs / madeInIsrael נלקחו מילה־במילה מהבאנר של כל דגם */
       items: [
         { img: '/products/product-compact.png', name: 'מסן ראשי משולב עמיעד קומפקט', model: '', warranty: 'שנה אחריות', chips: ['מניעת אבנית 85%', '50µ רשת נירוסטה'], desc: 'פתרון קומפקטי וחזק של עמיעד — חוסך מקום, עם שסתום שטיפה לניקוי קל.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: true },
@@ -228,6 +229,7 @@ export const content = {
       madragUrl: 'https://www.midrag.co.il/SpCard/Sp/17444?sectorId=4&listId=1',
       madragLabel: 'Customer reviews on Midrag',
       zoomHint: 'Tap the image to enlarge',
+      swipeHint: 'Swipe to see all {n} models',
       items: [
         { img: '/products/product-compact.png', name: 'Amiad Compact Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['85% scale prevention', '50µ stainless mesh'], desc: 'A compact, powerful Amiad unit — space-saving, with a flush valve for easy cleaning.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard'], madeInIsrael: true },
         { img: '/products/product-combined.png', name: 'Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['50µ stainless mesh', 'Made in USA'], desc: 'Quality blue housing with a washable, reusable stainless-steel mesh cartridge.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard', 'Slofos — Made in USA'], madeInIsrael: false },
