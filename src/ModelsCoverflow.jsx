@@ -44,8 +44,8 @@ export default function ModelsCoverflow({ items, rtl, onOpen, hint, labels }) {
         if (o > N / 2) o -= N
         if (o < -N / 2) o += N
         const ao = Math.abs(o), sg = Math.sign(o), k = Math.min(ao, 1), far = Math.max(0, ao - 1)
-        const x = side * sg * (k * 120 + far * 40)
-        c.style.transform = `translateX(${x}px) translateZ(${-k * 160 - far * 60}px) rotateY(${-side * sg * k * 48}deg)`
+        const x = side * sg * (k * 136 + far * 45)
+        c.style.transform = `translateX(${x}px) translateZ(${-k * 180 - far * 68}px) rotateY(${-side * sg * k * 48}deg)`
         c.style.opacity = ao > 2.2 ? 0 : 1 - far * 0.45
         c.style.filter = `brightness(${1 - k * 0.15})`
         c.style.zIndex = 100 - Math.round(ao * 10)
@@ -60,7 +60,7 @@ export default function ModelsCoverflow({ items, rtl, onOpen, hint, labels }) {
   }, [N, rtl])
 
   // Pointer drag / swipe
-  const PX_PER_CARD = 130
+  const PX_PER_CARD = 147
   const onDown = e => {
     const s = st.current
     Object.assign(s, { dragging: true, moved: false, startX: e.clientX, lastX: e.clientX, startPos: s.pos, lastT: performance.now(), vel: 0 })
