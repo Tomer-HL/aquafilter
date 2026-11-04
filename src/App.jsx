@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
   Search, Phone, Menu, X, Globe, Check, Gift, Flame, PiggyBank,
-  ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Star, MapPin, Clock, Mail, Facebook, Instagram,
+  ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram,
 } from 'lucide-react'
 import { content } from './i18n.js'
 import { LEGAL } from './legal.js'
 import { WhatsAppIcon } from './icons.jsx'
 import Questionnaire from './Questionnaire.jsx'
 import Accessibility from './Accessibility.jsx'
+import ModelsCoverflow from './ModelsCoverflow.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
@@ -42,7 +43,14 @@ export default function App() {
   const [nlEmail, setNlEmail] = useState('')
   const [nlDone, setNlDone] = useState(false)
   const [legal, setLegal] = useState(null)       // 'privacy' | 'a11y' | null
-  const [swiped, setSwiped] = useState(false)    // hides the mobile swipe hint after first scroll
+  // Mobile (≤760px) shows the 3D coverflow carousel; wider screens keep the grid
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 760px)').matches)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 760px)')
+    const on = () => setIsMobile(mq.matches)
+    mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
   const t = content[lang]
   const rtl = t.dir === 'rtl'
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -169,13 +177,16 @@ export default function App() {
               <h2>{t.tiersHead.title}</h2>
               <p>{t.tiersHead.sub}</p>
             </div>
-            <div className={`swipe-hint${swiped ? ' is-hidden' : ''}`} aria-hidden="true">
-              <span>{t.mainFilters.swipeHint.replace('{n}', t.mainFilters.items.length)}</span>
-              {lang === 'he'
-                ? <ChevronLeft size={18} className="swipe-arrow rtl" />
-                : <ChevronRight size={18} className="swipe-arrow" />}
-            </div>
-            <div className="models-grid" onScroll={() => { if (!swiped) setSwiped(true) }}>
+            {isMobile ? (
+              <ModelsCoverflow
+                items={t.mainFilters.items}
+                rtl={rtl}
+                onOpen={setDetails}
+                hint={t.mainFilters.swipeHint.replace('{n}', t.mainFilters.items.length)}
+                labels={{ region: t.mainFilters.carouselLabel, prev: t.mainFilters.prevLabel, next: t.mainFilters.nextLabel, details: t.mainFilters.detailsCta }}
+              />
+            ) : (
+            <div className="models-grid">
               {t.mainFilters.items.map((m, i) => (
                 <article className="model-card" key={i}>
                   <button className="model-media" onClick={() => setDetails(m)} aria-label={`${t.mainFilters.detailsCta}: ${m.name}`}>
@@ -200,6 +211,7 @@ export default function App() {
                 </article>
               ))}
             </div>
+            )}
           </div>
         </section>
 
