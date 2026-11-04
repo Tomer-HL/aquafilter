@@ -203,6 +203,19 @@ html, body { overflow-x: clip; }
 .cat .cat-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-weight: 600; font-size: 14px; color: var(--c-primary-dark); }
 .cat .cat-link svg { transition: transform .15s; }
 .cat:hover .cat-link svg { transform: translateX(var(--arrow-shift, 4px)); }
+/* Categories on phones — match the compact 2x2 benefit-card grid */
+@media (max-width: 560px) {
+  .cats .cats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .cats .cat { padding: 18px 12px; gap: 0; flex-direction: column; align-items: center; text-align: center; }
+  .cats .cat .cat-icon { width: 50px; height: 50px; border-radius: 14px; margin-bottom: 12px; }
+  .cats .cat .cat-icon svg { width: 25px; height: 25px; }
+  .cats .cat h3 { font-size: 15px; line-height: 1.35; }
+  .cats .cat p { font-size: 13px; line-height: 1.6; margin-top: 6px; }
+  .cats .cat .cat-link { font-size: 13px; margin-top: 10px; justify-content: center; }
+}
+@media (max-width: 340px) {
+  .cats .cats-grid { grid-template-columns: 1fr; }
+}
 
 /* ================= Featured products ================= */
 .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
