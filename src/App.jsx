@@ -10,6 +10,7 @@ import { WhatsAppIcon } from './icons.jsx'
 import Questionnaire from './Questionnaire.jsx'
 import Accessibility from './Accessibility.jsx'
 import ModelsCoverflow from './ModelsCoverflow.jsx'
+import CountUp from './CountUp.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
@@ -156,8 +157,8 @@ export default function App() {
                 ))}
               </div>
               <div className="hero-stats">
-                <div className="stat"><b>{t.hero.stat1}</b><span>{t.hero.stat1l}</span></div>
-                <div className="stat"><b>{t.hero.stat2}</b><span>{t.hero.stat2l}</span></div>
+                <div className="stat"><CountUp key={lang + 1} value={t.hero.stat1} /><span>{t.hero.stat1l}</span></div>
+                <div className="stat"><CountUp key={lang + 2} value={t.hero.stat2} /><span>{t.hero.stat2l}</span></div>
                 <div className="stat"><b>{t.hero.stat3}</b><span>{t.hero.stat3l}</span></div>
               </div>
             </div>
