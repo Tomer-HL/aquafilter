@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Droplet, Droplets, Filter, ShieldCheck, Award, Wrench, Sparkles,
-  Search, Phone, Menu, X, Globe, Check, Gift, Flame, PiggyBank,
+  Search, Phone, Menu, X, Globe, Check, Gift, Flame, WashingMachine, ShowerHead,
   ArrowRight, ArrowLeft, Star, MapPin, Clock, Mail, Facebook, Instagram,
 } from 'lucide-react'
 import { content } from './i18n.js'
@@ -17,7 +17,7 @@ const PHONE = '0506830881'
 
 // Maps banner-benefit keys → matching Lucide icons (kept semantically close to
 // the original banner icons: drop / faucet-pipes / boiler / savings).
-const benefitIconMap = { drop: Droplet, pipes: Wrench, boiler: Flame, savings: PiggyBank }
+const benefitIconMap = { drop: Droplets, pipes: ShowerHead, boiler: Flame, savings: WashingMachine }
 
 // Single nav model — one label per real on-page section, shared by the
 // desktop bar and the mobile drawer so every link leads somewhere distinct.
@@ -32,7 +32,8 @@ const NAV = [
 const tierIcons = [Droplets, Filter, Droplet, ShieldCheck, Filter]
 const featureIcons = [Sparkles, Award, Wrench, ShieldCheck]
 const catIcons = [Droplets, Filter, ShieldCheck, Sparkles]
-const benefitIcons = [Droplet, Wrench, ShieldCheck, Award]
+// Main-filter benefit cards: clean water · faucets & pipes · boiler · appliances
+const benefitIcons = [Droplets, ShowerHead, Flame, WashingMachine]
 
 export default function App() {
   const [lang, setLang] = useState('he')
@@ -229,12 +230,12 @@ export default function App() {
               ))}
               <span className="mf-chip gift"><Sparkles size={15} /> {t.mainFilter.gift}</span>
             </div>
-            <div className="features-grid">
+            <div className="features-grid benefits-grid">
               {t.mainFilter.benefits.map((b, i) => {
                 const Icon = benefitIcons[i]
                 return (
-                  <div className="feature" key={i}>
-                    <div className="fi"><Icon size={24} /></div>
+                  <div className="feature benefit" key={i}>
+                    <div className="fi"><Icon size={28} strokeWidth={2} aria-hidden="true" /></div>
                     <h3>{b.title}</h3>
                     <p>{b.desc}</p>
                   </div>
