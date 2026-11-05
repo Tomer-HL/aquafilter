@@ -1000,3 +1000,52 @@ a.line:hover { color: #7fd4f5; }
   .ruler-note { max-width: none; }
   .ruler-scale { flex: none; width: 100%; }
 }
+
+/* ================= Hero studio (product on a soft grey studio backdrop) ================= */
+.hero-studio {
+  min-height: 520px; padding: 36px 24px 28px; border-radius: 28px; overflow: hidden;
+  perspective: 900px; touch-action: pan-y;
+  background: radial-gradient(70% 75% at 50% 40%, #f6f9fb 0%, #e6eef3 58%, #cddae2 100%);
+}
+.hero-studio-tilt {
+  position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
+  transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+.hero-studio .hero-product { max-height: 440px; width: auto; max-width: 100%; filter: none; }
+.hero-studio-refl {
+  height: 90px; width: auto; max-width: 100%; margin-top: -4px; object-fit: cover; object-position: bottom;
+  transform: scaleY(-1); opacity: .2; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent 85%); mask-image: linear-gradient(to top, #000, transparent 85%);
+}
+.hero-studio-shadow {
+  position: absolute; z-index: 1; left: 50%; bottom: 96px; width: 320px; height: 38px; margin-left: -160px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(16, 34, 46, .26), rgba(16, 34, 46, 0)); transition: transform .5s;
+}
+.hero-studio .hero-badge { top: 18px; inset-inline-end: 18px; }
+.hero-studio .hero-gift { bottom: 18px; inset-inline-start: 18px; }
+@media (max-width: 900px) {
+  .hero-studio { min-height: 0; padding: 26px 14px 72px; border-radius: 22px; }
+  .hero-studio .hero-gift { bottom: 14px; inset-inline-start: 50%; transform: translateX(50%); white-space: nowrap; }
+  .hero-studio .hero-product { max-height: 330px; }
+  .hero-studio-refl { height: 64px; }
+  .hero-studio-shadow { bottom: 124px; width: 240px; margin-left: -120px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-studio-tilt, .hero-studio-shadow { transition: none; } }
+
+/* ================= Hero headline · glass answer (matches the glass buttons) ================= */
+.hero h1.glass-title .glass-line { display: block; }
+.glass-text {
+  position: relative; display: inline-block; color: transparent; -webkit-text-fill-color: transparent;
+  background: linear-gradient(180deg, #3db5ea 0%, #0a8fcb 48%, #06699a 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.glass-text::after, .glass-text::before {
+  content: attr(data-text); position: absolute; inset: 0; pointer-events: none;
+  color: transparent; -webkit-text-fill-color: transparent; -webkit-background-clip: text; background-clip: text;
+}
+/* curved gloss on the top half of the letters */
+.glass-text::after { background: linear-gradient(180deg, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, 0) 46%); }
+/* highlight that follows the pointer */
+.glass-text::before { z-index: 1; background: radial-gradient(90px 60px at var(--mx, 30%) var(--my, 30%), rgba(255, 255, 255, .7), rgba(255, 255, 255, 0) 70%); }
+:root.a11y-contrast .glass-text { background: none; filter: none; -webkit-text-fill-color: currentColor; color: #000; }
+:root.a11y-contrast .glass-text::before, :root.a11y-contrast .glass-text::after { display: none; }

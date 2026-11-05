@@ -13,6 +13,8 @@ import ModelsCoverflow from './ModelsCoverflow.jsx'
 import CountUp from './CountUp.jsx'
 import VideoSection from './VideoSection.jsx'
 import MicronRuler from './MicronRuler.jsx'
+import HeroStudio from './HeroStudio.jsx'
+import GlassTitle from './GlassTitle.jsx'
 import Reviews from './Reviews.jsx'
 import './App.css'
 
@@ -148,7 +150,7 @@ export default function App() {
           <div className="container hero-grid">
             <div>
               <span className="eyebrow">{t.hero.eyebrow}</span>
-              <h1>{t.hero.title}</h1>
+              <GlassTitle text={t.hero.title} />
               <p className="lead">{t.hero.subtitle}</p>
               <div className="hero-cta">
                 <a className="btn btn-primary" href="#finder">{t.hero.ctaPrimary} <Arrow size={18} /></a>
@@ -165,12 +167,10 @@ export default function App() {
                 <div className="stat"><b>{t.hero.stat3}</b><span>{t.hero.stat3l}</span></div>
               </div>
             </div>
-            <div className="hero-visual">
-              <div className="hero-blob" />
-              <img className="hero-product" src="/products/amiad-compact.png" alt={t.mainFilters.items[0].name} />
+            <HeroStudio alt={t.mainFilters.items[0].name}>
               <span className="hero-badge"><b>85%</b>{t.hero.badge}</span>
               <span className="hero-gift"><Sparkles size={16} /> {t.mainFilter.gift}</span>
-            </div>
+            </HeroStudio>
           </div>
         </section>
 
