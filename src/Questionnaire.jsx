@@ -19,6 +19,7 @@ const UI = {
     alt: 'אפשרות נוספת לשקול',
     detailsCta: 'לפרטי המוצר',
     waCta: 'דברו איתנו בוואטסאפ',
+    waResult: (name) => `שלום, מילאתי את השאלון באתר וקיבלתי המלצה על ${name}. אשמח לקבל פרטים והצעת מחיר.`,
     bands: { excellent: 'התאמה מצוינת', high: 'התאמה גבוהה', good: 'התאמה טובה', partial: 'התאמה חלקית', low: 'התאמה חלשה' },
     unsureTitle: 'לא מצאנו התאמה חד־משמעית לפי התשובות שלכם',
     unsureBody: 'כדי להתאים לכם את הפתרון בצורה מדויקת, מומלץ לדבר איתנו — נשמח לייעץ ללא התחייבות.',
@@ -41,6 +42,7 @@ const UI = {
     alt: 'Another option to consider',
     detailsCta: 'Product details',
     waCta: 'Chat with us on WhatsApp',
+    waResult: (name) => `Hi, I filled in the questionnaire on your website and was recommended the ${name}. I'd like details and a price quote.`,
     bands: { excellent: 'Excellent match', high: 'High match', good: 'Good match', partial: 'Partial match', low: 'Low match' },
     unsureTitle: 'We couldn’t find a clear match from your answers',
     unsureBody: 'To match the right solution precisely, it’s best to talk to us — happy to advise, no obligation.',
@@ -54,7 +56,7 @@ const UI = {
 const bandOf = score =>
   score >= 90 ? 'excellent' : score >= 75 ? 'high' : score >= 60 ? 'good' : score >= 40 ? 'partial' : 'low'
 
-export default function Questionnaire({ lang, items, onDetails, waUrl, phone }) {
+export default function Questionnaire({ lang, items, onDetails, waUrl, waLink, phone }) {
   const rtl = lang === 'he'
   const u = UI[lang]
   const Arrow = rtl ? ArrowLeft : ArrowRight
@@ -119,7 +121,7 @@ export default function Questionnaire({ lang, items, onDetails, waUrl, phone }) 
           <div className="quiz-card" role="region" aria-live="polite" ref={liveRef}>
             {!isUnsure ? (
               <QuizResult u={u} lang={lang} result={result} bySlug={bySlug} onDetails={onDetails}
-                waUrl={waUrl} headingRef={headingRef} Arrow={Arrow} />
+                waUrl={waLink ? waLink(u.waResult(bySlug[result.primary?.slug]?.name ?? '')) : waUrl} headingRef={headingRef} Arrow={Arrow} />
             ) : (
               <QuizUnsure u={u} lang={lang} result={result} bySlug={bySlug} onDetails={onDetails}
                 waUrl={waUrl} phone={phone} headingRef={headingRef} />

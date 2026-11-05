@@ -6,6 +6,7 @@ export const content = {
     zoomLabel: 'הגדלת תמונה',
     close: 'סגירה',
     waLabel: 'יצירת קשר בוואטסאפ',
+    waMessage: 'שלום, הגעתי מהאתר של א.מ שיווק מסננים ואשמח לקבל פרטים על מסנן ראשי למניעת אבנית בבית.',
     brand: { name: 'א.מ שיווק מסננים', tagline: 'למניעת אבנית' },
     services: 'וסתי לחץ מים · שסתומי אל־חוזר · החלפת ברזים',
     announcements: [
@@ -157,6 +158,7 @@ export const content = {
     zoomLabel: 'Enlarge image',
     close: 'Close',
     waLabel: 'Contact us on WhatsApp',
+    waMessage: 'Hi, I found you through the A.M Filters website and would like details about a main scale-prevention filter for my home.',
     brand: { name: 'A.M Filters', tagline: 'Scale Prevention' },
     services: 'Pressure regulators · Check valves · Faucet replacement',
     announcements: [

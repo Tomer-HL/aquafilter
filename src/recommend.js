@@ -54,7 +54,7 @@ export const PROFILES = {
 
 // item.img '/products/product-compact.png' -> 'compact'
 export const slugOf = item => {
-  const m = /product-([a-z0-9-]+)\.(png|jpg)/i.exec(item.img || '')
+  const m = /(?:product|splash)-([a-z0-9-]+)\.(png|jpg|webp)/i.exec(item.img || '')
   return m ? m[1] : ''
 }
 

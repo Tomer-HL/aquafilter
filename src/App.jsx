@@ -19,6 +19,8 @@ import TrustStats from './TrustStats.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
+// WhatsApp link with a ready-to-send message in the page language
+const waLink = (text) => `${WA_URL}?text=${encodeURIComponent(text)}`
 const PHONE = '0506830881'
 
 // Maps banner-benefit keys → matching Lucide icons (kept semantically close to
@@ -295,7 +297,7 @@ export default function App() {
 
         {/* Smart questionnaire — weighted recommendation engine (id=finder for nav) */}
         <div id="finder">
-          <Questionnaire lang={lang} items={t.mainFilters.items} onDetails={setDetails} waUrl={WA_URL} phone={PHONE} />
+          <Questionnaire lang={lang} items={t.mainFilters.items} onDetails={setDetails} waUrl={waLink(t.waMessage)} waLink={waLink} phone={PHONE} />
         </div>
 
         {/* About */}
@@ -354,7 +356,7 @@ export default function App() {
               <div className="foot-social">
                 <a href="#top" aria-label="Facebook"><Facebook size={18} /></a>
                 <a href="#top" aria-label="Instagram"><Instagram size={18} /></a>
-                <a className="foot-wa" href={WA_URL} target="_blank" rel="noopener noreferrer"
+                <a className="foot-wa" href={waLink(t.waMessage)} target="_blank" rel="noopener noreferrer"
                    aria-label={t.waLabel}><WhatsAppIcon size={18} /></a>
               </div>
             </div>
@@ -477,7 +479,7 @@ export default function App() {
       })()}
 
       {/* Floating WhatsApp button (opens chat in a new tab) */}
-      <a className="wa-fab" href={WA_URL} target="_blank" rel="noopener noreferrer" aria-label={t.waLabel}>
+      <a className="wa-fab" href={waLink(t.waMessage)} target="_blank" rel="noopener noreferrer" aria-label={t.waLabel}>
         <WhatsAppIcon size={30} />
       </a>
 
