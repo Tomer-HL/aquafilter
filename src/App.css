@@ -995,6 +995,8 @@ a.line:hover { color: #7fd4f5; }
 .ruler-scale svg { position: absolute; top: 0; left: 0; height: 84px; width: 2200px; will-change: transform; }
 .ruler-scale text { font-family: var(--font-body); font-size: 13px; fill: var(--c-muted); }
 .ruler-scale .hl { fill: var(--c-primary-darker); font-weight: 800; }
+.ruler-scale.is-fit { height: 76px; -webkit-mask-image: none; mask-image: none; }
+.ruler-scale.is-fit svg { position: static; width: 100%; height: 72px; overflow: visible; }
 @media (max-width: 900px) {
   .ruler-in { flex-direction: column; align-items: stretch; gap: 10px; }
   .ruler-note { max-width: none; }
