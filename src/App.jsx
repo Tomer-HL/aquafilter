@@ -11,6 +11,7 @@ import Questionnaire from './Questionnaire.jsx'
 import Accessibility from './Accessibility.jsx'
 import ModelsCoverflow from './ModelsCoverflow.jsx'
 import CountUp from './CountUp.jsx'
+import VideoSection from './VideoSection.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
@@ -170,6 +171,9 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* Explainer video — click-to-play only, subtitles via WebVTT */}
+        <VideoSection lang={lang} copy={t.video} mobile={isMobile} />
 
         {/* Recommended systems — our actual implemented products (single source: mainFilters) */}
         <section className="section" id="tiers">

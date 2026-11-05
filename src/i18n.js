@@ -36,6 +36,7 @@ export const content = {
       stat2: '10', stat2l: 'שנות ניסיון',
       stat3: '3 שנות', stat3l: 'אחריות מלאה',
     },
+    video: { eyebrow: 'איך זה עובד?', title: 'אבנית: הבעיה והפתרון', sub: 'סרטון קצר: מאיפה מגיעה האבנית, איך היא פוגעת בדוד ובמכונת הכביסה, ואיך המסנן הראשי המשולב מגן על הבית.', play: 'צפו בסרטון', duration: '0:38', captions: 'כתוביות', note: '' },
     tiersHead: { eyebrow: 'מערכות מומלצות', title: 'בחרו מערכת סינון מים', sub: 'המסננים הראשיים המשולבים שאנחנו מתקינים — מניעת אבנית עד 85% וסינון 50 מיקרון (רשת נירוסטה)' },
     tiers: [
       { badge: 'הכי נמכר', name: 'מערכת אוסמוזה פרימיום', model: 'BE WELL 6', desc: 'תת-כיורי · אוסמוזה הפוכה · 6 שלבי סינון · מותאם למי התפלה · אנטי-בקטריאלי', price: '₪2,000', cta: 'לפרטים' },
@@ -184,6 +185,7 @@ export const content = {
       stat2: '10', stat2l: 'years of experience',
       stat3: '3-year', stat3l: 'full warranty',
     },
+    video: { eyebrow: 'How it works', title: 'Limescale: the problem and the fix', sub: 'A short video: where limescale comes from, how it damages your boiler and washing machine, and how the combined main filter protects your home.', play: 'Watch the video', duration: '0:38', captions: 'Subtitles', note: 'Hebrew narration · English subtitles' },
     tiersHead: { eyebrow: 'Recommended systems', title: 'Choose a filtration system', sub: 'The combined main filters we install — up to 85% scale prevention and 50-micron filtration (stainless mesh)' },
     tiers: [
       { badge: 'Best seller', name: 'Premium Reverse Osmosis', model: 'BE WELL 6', desc: 'Under-sink · Reverse osmosis · 6-stage filtration · Desalination-ready · Anti-bacterial', price: '₪2,000', cta: 'Details' },
