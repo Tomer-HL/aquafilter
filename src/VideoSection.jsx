@@ -77,7 +77,6 @@ export default function VideoSection({ lang, copy, mobile }) {
     <section className="section video-sec" id="video">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">{copy.eyebrow}</span>
           <h2>{copy.title}</h2>
           <p>{copy.sub}</p>
         </div>

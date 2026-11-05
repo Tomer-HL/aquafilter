@@ -33,7 +33,6 @@ export default function Reviews({ lang, copy }) {
     <section className="section reviews-sec" id="reviews">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">{copy.eyebrow}</span>
           <h2>{copy.title}</h2>
         </div>
 

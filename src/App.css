@@ -1003,36 +1003,26 @@ a.line:hover { color: #7fd4f5; }
   .ruler-scale { flex: none; width: 100%; }
 }
 
-/* ================= Hero studio (product on a soft grey studio backdrop) ================= */
-.hero-studio {
-  min-height: 520px; padding: 36px 24px 28px; border-radius: 28px; overflow: hidden;
-  perspective: 900px; touch-action: pan-y;
-  background: radial-gradient(70% 75% at 50% 40%, #f6f9fb 0%, #e6eef3 58%, #cddae2 100%);
-}
-.hero-studio-tilt {
-  position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
-  transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2, .8, .2, 1);
-}
-.hero-studio .hero-product { max-height: 440px; width: auto; max-width: 100%; filter: none; }
-.hero-studio-refl {
-  height: 90px; width: auto; max-width: 100%; margin-top: -4px; object-fit: cover; object-position: bottom;
-  transform: scaleY(-1); opacity: .2; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to top, #000, transparent 85%); mask-image: linear-gradient(to top, #000, transparent 85%);
-}
-.hero-studio-shadow {
-  position: absolute; z-index: 1; left: 50%; bottom: 96px; width: 320px; height: 38px; margin-left: -160px; border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(16, 34, 46, .26), rgba(16, 34, 46, 0)); transition: transform .5s;
-}
-.hero-studio .hero-badge { top: 18px; inset-inline-end: 18px; }
-.hero-studio .hero-gift { bottom: 18px; inset-inline-start: 18px; }
+/* ================= Hero product (photo only, no backdrop) ================= */
+.hero-studio { perspective: 900px; touch-action: pan-y; }
+.hero-studio-tilt { position: relative; z-index: 2; display: flex; justify-content: center; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+.hero-studio .hero-product { max-height: 540px; width: auto; max-width: 100%; filter: none; }
+@media (prefers-reduced-motion: reduce) { .hero-studio-tilt { transition: none; } }
+
+/* Phones/tablets: headline on top, then the subline (right) beside the picture (left), then buttons and stats */
 @media (max-width: 900px) {
-  .hero-studio { min-height: 0; padding: 26px 14px 72px; border-radius: 22px; }
-  .hero-studio .hero-gift { bottom: 14px; inset-inline-start: 50%; transform: translateX(50%); white-space: nowrap; }
-  .hero-studio .hero-product { max-height: 330px; }
-  .hero-studio-refl { height: 64px; }
-  .hero-studio-shadow { bottom: 124px; width: 240px; margin-left: -120px; }
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+    grid-template-areas: "title title" "lead visual" "cta cta";
+    gap: 14px 12px; align-items: center;
+  }
+  .hero-copy { display: contents; }
+  .hero-copy > h1 { grid-area: title; }
+  .hero-copy > .lead { grid-area: lead; margin-top: 0; font-size: 16px; line-height: 1.6; }
+  .hero-copy > .hero-cta { grid-area: cta; margin-top: 6px; }
+  .hero-studio { grid-area: visual; order: 0; justify-self: start; }
+  .hero-studio .hero-product { max-height: 280px; }
 }
-@media (prefers-reduced-motion: reduce) { .hero-studio-tilt, .hero-studio-shadow { transition: none; } }
 
 /* ================= Hero headline · glass answer (matches the glass buttons) ================= */
 .hero h1.glass-title .glass-line { display: block; }
@@ -1046,8 +1036,16 @@ a.line:hover { color: #7fd4f5; }
   color: transparent; -webkit-text-fill-color: transparent; -webkit-background-clip: text; background-clip: text;
 }
 /* curved gloss on the top half of the letters */
-.glass-text::after { background: linear-gradient(180deg, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, 0) 46%); }
+.glass-text::after { background-image: linear-gradient(180deg, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, 0) 46%); }
 /* highlight that follows the pointer */
-.glass-text::before { z-index: 1; background: radial-gradient(90px 60px at var(--mx, 30%) var(--my, 30%), rgba(255, 255, 255, .7), rgba(255, 255, 255, 0) 70%); }
+.glass-text::before { z-index: 1; background-image: radial-gradient(90px 60px at var(--mx, 30%) var(--my, 30%), rgba(255, 255, 255, .7), rgba(255, 255, 255, 0) 70%); }
 :root.a11y-contrast .glass-text { background: none; filter: none; -webkit-text-fill-color: currentColor; color: #000; }
 :root.a11y-contrast .glass-text::before, :root.a11y-contrast .glass-text::after { display: none; }
+
+/* Trust numbers strip — right under the micron ruler */
+.trust-strip { background: #fff; border-bottom: 1px solid var(--c-line); }
+.trust-stats { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px clamp(28px, 7vw, 96px); padding-block: 26px 28px; }
+.trust-stats .stat { text-align: center; }
+.trust-stats .stat b { display: block; font-family: var(--font-head); font-size: clamp(30px, 4vw, 40px); font-weight: 800; color: var(--c-primary-dark); font-variant-numeric: tabular-nums; line-height: 1.15; }
+.trust-stats .stat span { font-size: 15px; color: var(--c-muted); }
+@media (max-width: 560px) { .trust-stats { gap: 14px 28px; } }

@@ -10,12 +10,12 @@ import { WhatsAppIcon } from './icons.jsx'
 import Questionnaire from './Questionnaire.jsx'
 import Accessibility from './Accessibility.jsx'
 import ModelsCoverflow from './ModelsCoverflow.jsx'
-import CountUp from './CountUp.jsx'
 import VideoSection from './VideoSection.jsx'
 import MicronRuler from './MicronRuler.jsx'
 import HeroStudio from './HeroStudio.jsx'
 import GlassTitle from './GlassTitle.jsx'
 import Reviews from './Reviews.jsx'
+import TrustStats from './TrustStats.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
@@ -148,34 +148,23 @@ export default function App() {
         {/* Hero */}
         <section className="hero">
           <div className="container hero-grid">
-            <div>
-              <span className="eyebrow">{t.hero.eyebrow}</span>
+            <div className="hero-copy">
               <GlassTitle text={t.hero.title} />
               <p className="lead">{t.hero.subtitle}</p>
               <div className="hero-cta">
                 <a className="btn btn-primary" href="#finder">{t.hero.ctaPrimary} <Arrow size={18} /></a>
                 <a className="btn btn-ghost" href="#tiers">{t.hero.ctaSecondary}</a>
               </div>
-              <div className="hero-highlights">
-                {t.hero.highlights.map((h, i) => (
-                  <span className="hpill" key={i}><Check size={15} /> {h}</span>
-                ))}
-              </div>
-              <div className="hero-stats">
-                <div className="stat"><CountUp key={lang + 1} value={t.hero.stat1} /><span>{t.hero.stat1l}</span></div>
-                <div className="stat"><CountUp key={lang + 2} value={t.hero.stat2} /><span>{t.hero.stat2l}</span></div>
-                <div className="stat"><b>{t.hero.stat3}</b><span>{t.hero.stat3l}</span></div>
-              </div>
             </div>
-            <HeroStudio alt={t.mainFilters.items[0].name}>
-              <span className="hero-badge"><b>85%</b>{t.hero.badge}</span>
-              <span className="hero-gift"><Sparkles size={16} /> {t.mainFilter.gift}</span>
-            </HeroStudio>
+            <HeroStudio alt={t.mainFilters.items[0].name} />
           </div>
         </section>
 
         {/* Micron ruler strip — "50µ is finer than a hair" */}
         <MicronRuler copy={t.ruler} />
+
+        {/* Trust numbers — right under the ruler */}
+        <TrustStats lang={lang} stats={[[t.hero.stat1, t.hero.stat1l, true], [t.hero.stat2, t.hero.stat2l, true], [t.hero.stat3, t.hero.stat3l, false]]} />
 
         {/* Explainer video — click-to-play only, subtitles via WebVTT */}
         <VideoSection lang={lang} copy={t.video} mobile={isMobile} />
@@ -184,7 +173,6 @@ export default function App() {
         <section className="section" id="tiers">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">{t.tiersHead.eyebrow}</span>
               <h2>{t.tiersHead.title}</h2>
               <p>{t.tiersHead.sub}</p>
             </div>
@@ -230,7 +218,6 @@ export default function App() {
         <section className="section main-filter" id="main-filter" style={{ paddingTop: 0 }}>
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">{t.mainFilter.eyebrow}</span>
               <h2>{t.mainFilter.title}</h2>
               <p>{t.mainFilter.sub}</p>
             </div>
@@ -262,7 +249,6 @@ export default function App() {
         <section className="section" style={{ paddingTop: 0 }}>
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">{t.featuresHead.eyebrow}</span>
               <h2>{t.featuresHead.title}</h2>
             </div>
             <div className="features-grid benefits-grid">
@@ -287,7 +273,6 @@ export default function App() {
         <section className="section cats" id="categories">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow">{t.catHead.eyebrow}</span>
               <h2>{t.catHead.title}</h2>
             </div>
             <div className="cats-grid">
@@ -321,7 +306,6 @@ export default function App() {
               <span className="since">{t.about.badge}</span>
             </div>
             <div>
-              <span className="eyebrow">{t.about.eyebrow}</span>
               <h2>{t.about.title}</h2>
               <p>{t.about.body}</p>
               <a className="btn btn-primary" href="#top">{t.about.cta} <Arrow size={18} /></a>

@@ -99,7 +99,6 @@ export default function Questionnaire({ lang, items, onDetails, waUrl, phone }) 
       <section className="section quiz" id="finder-quiz">
         <div className="container">
           <div className="quiz-intro">
-            <span className="eyebrow">{u.eyebrow}</span>
             <h2>{u.title}</h2>
             <p>{u.sub}</p>
             <button className="btn btn-primary quiz-start" onClick={() => setStarted(true)}>
@@ -181,7 +180,6 @@ function QuizResult({ u, lang, result, bySlug, onDetails, waUrl, headingRef, Arr
 
   return (
     <>
-      <span className="eyebrow">{u.resultEyebrow}</span>
       <h2 className="quiz-result-title" tabIndex={-1} ref={headingRef}>{u.yourMatch}</h2>
 
       <div className="quiz-primary">
@@ -232,7 +230,6 @@ function QuizUnsure({ u, lang, result, bySlug, onDetails, waUrl, phone, headingR
     : result.unsureReason === 'chlorine' ? u.unsureChlorine : u.unsureBody
   return (
     <>
-      <span className="eyebrow">{u.resultEyebrow}</span>
       <h2 className="quiz-result-title" tabIndex={-1} ref={headingRef}>{u.unsureTitle}</h2>
       <p className="quiz-unsure-body">{msg}</p>
       <div className="quiz-cta-row">
