@@ -12,6 +12,7 @@ import Accessibility from './Accessibility.jsx'
 import ModelsCoverflow from './ModelsCoverflow.jsx'
 import CountUp from './CountUp.jsx'
 import VideoSection from './VideoSection.jsx'
+import MicronRuler from './MicronRuler.jsx'
 import Reviews from './Reviews.jsx'
 import './App.css'
 
@@ -172,6 +173,9 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* Micron ruler strip — "50µ is finer than a hair" */}
+        <MicronRuler copy={t.ruler} />
 
         {/* Explainer video — click-to-play only, subtitles via WebVTT */}
         <VideoSection lang={lang} copy={t.video} mobile={isMobile} />

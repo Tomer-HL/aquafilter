@@ -981,3 +981,22 @@ a.line:hover { color: #7fd4f5; }
   .review { flex: 0 0 84%; scroll-snap-align: center; }
   .mb-score { font-size: 22px; }
 }
+
+/* ================= Micron ruler strip ================= */
+.ruler { background: #fff; border-block: 1px solid var(--c-line); overflow: hidden; position: relative; }
+.ruler-in { display: flex; align-items: center; gap: clamp(20px, 4vw, 64px); padding-block: 22px; }
+.ruler-note { flex: 0 0 auto; max-width: 300px; font-size: 15px; color: var(--c-ink-2); line-height: 1.45; margin: 0; }
+.ruler-note b { display: block; color: var(--c-primary-darker); font-family: var(--font-head); font-size: 18px; font-weight: 800; }
+.ruler-scale {
+  flex: 1; min-width: 0; overflow: hidden; position: relative; height: 84px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ruler-scale svg { position: absolute; top: 0; left: 0; height: 84px; width: 2200px; will-change: transform; }
+.ruler-scale text { font-family: var(--font-body); font-size: 13px; fill: var(--c-muted); }
+.ruler-scale .hl { fill: var(--c-primary-darker); font-weight: 800; }
+@media (max-width: 900px) {
+  .ruler-in { flex-direction: column; align-items: stretch; gap: 10px; }
+  .ruler-note { max-width: none; }
+  .ruler-scale { flex: none; width: 100%; }
+}

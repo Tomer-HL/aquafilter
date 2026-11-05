@@ -36,6 +36,7 @@ export const content = {
       stat2: '10', stat2l: 'שנות ניסיון',
       stat3: '3 שנות', stat3l: 'אחריות מלאה',
     },
+    ruler: { title: '50 מיקרון זה דק משערה.', text: 'שערה אנושית עבה בערך 70 מיקרון. הרשת עוצרת כל מה שגדול מ-50.', mesh: '50µ · רשת המסנן', hair: '~70µ · שערה', dir: 'rtl', aria: 'סרגל מיקרונים: רשת המסנן 50 מיקרון, שערה אנושית בערך 70 מיקרון' },
     video: { eyebrow: 'איך זה עובד?', title: 'אבנית: הבעיה והפתרון', sub: 'סרטון קצר: מאיפה מגיעה האבנית, איך היא פוגעת בדוד ובמכונת הכביסה, ואיך המסנן הראשי המשולב מגן על הבית.', play: 'צפו בסרטון', duration: '0:38', captions: 'כתוביות', note: '' },
     tiersHead: { eyebrow: 'מערכות מומלצות', title: 'בחרו מערכת סינון מים', sub: 'המסננים הראשיים המשולבים שאנחנו מתקינים — מניעת אבנית עד 85% וסינון 50 מיקרון (רשת נירוסטה)' },
     tiers: [
@@ -186,6 +187,7 @@ export const content = {
       stat2: '10', stat2l: 'years of experience',
       stat3: '3-year', stat3l: 'full warranty',
     },
+    ruler: { title: '50 microns is finer than a hair.', text: 'A human hair is about 70 microns thick. The mesh stops anything larger than 50.', mesh: '50µ · filter mesh', hair: '~70µ · hair', dir: 'ltr', aria: 'Micron ruler: the filter mesh is 50 microns, a human hair is about 70 microns' },
     video: { eyebrow: 'How it works', title: 'Limescale: the problem and the fix', sub: 'A short video: where limescale comes from, how it damages your boiler and washing machine, and how the combined main filter protects your home.', play: 'Watch the video', duration: '0:38', captions: 'Subtitles', note: 'Hebrew narration · English subtitles' },
     tiersHead: { eyebrow: 'Recommended systems', title: 'Choose a filtration system', sub: 'The combined main filters we install — up to 85% scale prevention and 50-micron filtration (stainless mesh)' },
     tiers: [
