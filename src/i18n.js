@@ -27,7 +27,7 @@ export const content = {
     hero: {
       eyebrow: 'מומחים במניעת אבנית וטיפול במים',
       title: 'יש לכם אבנית בבית? שמים לזה סוף!',
-      subtitle: 'מסנן ראשי משולב שמונע התגבשות אבנית עד 85% ומסנן לכלוך ברמת 50 מיקרון (רשת נירוסטה) — הגנה מלאה על הצנרת, הברזים והדוד, עם התקנה מקצועית ואחריות.',
+      subtitle: 'המים בישראל קשים, והסידן שבהם מתגבש לאבנית בצנרת, בדוד ובמכשירי החשמל. מסנן ראשי משולב על כניסת המים לבית מונע התגבשות אבנית עד 85% ומסנן חול, חלודה ולכלוך ברמת 50 מיקרון, עם התקנה מלאה ושסתום אל־חוזר במתנה.',
       ctaPrimary: 'למצוא את המערכת שלי',
       ctaSecondary: 'לכל המוצרים',
       highlights: ['מונע התגבשות אבנית עד 85%', 'סינון 50 מיקרון · רשת נירוסטה', 'מתנה: שסתום אל־חוזר ¾״'],
@@ -178,7 +178,7 @@ export const content = {
     hero: {
       eyebrow: 'Scale-prevention & water-treatment specialists',
       title: 'Got limescale at home? Put an end to it!',
-      subtitle: 'A combined main filter that prevents scale buildup up to 85% and filters dirt to 50 microns (stainless mesh) — full protection for your pipes, faucets and boiler, with professional installation and warranty.',
+      subtitle: 'Water in Israel is hard, and its calcium builds up as limescale in pipes, boilers and appliances. A combined main filter at your home\'s water inlet prevents scale buildup by up to 85% and filters sand, rust and dirt down to 50 microns, with full installation and a free check valve.',
       ctaPrimary: 'Find my system',
       ctaSecondary: 'Shop all products',
       highlights: ['Prevents scale buildup up to 85%', '50-micron filtration · stainless mesh', 'Gift: ¾" check valve'],

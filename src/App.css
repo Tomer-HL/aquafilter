@@ -1061,3 +1061,24 @@ a.line:hover { color: #7fd4f5; }
   .hero-studio { align-self: center; }
   .hero-studio .hero-product { display: block; }
 }
+
+/* Hero: lifted so the whole section fits on screen; bigger, light subline */
+.hero-grid { padding-block: clamp(20px, 3vw, 44px) clamp(32px, 4vw, 56px); }
+.hero .lead { font-size: clamp(18px, 1.7vw, 23px); font-weight: 300; line-height: 1.65; max-width: 44ch; margin-top: 22px; }
+@media (min-width: 901px) {
+  .hero-studio .hero-product { max-height: min(520px, calc(100vh - 230px)); min-height: 360px; object-fit: contain; }
+}
+@media (max-width: 900px) {
+  .hero-copy > .lead { font-size: 16px; font-weight: 300; margin-top: 0; }
+}
+
+/* Hero fills the first screen (below the announcement bar + header), so the micron
+   ruler only appears after scrolling — on phones and desktop alike. */
+.hero { min-height: calc(100svh - var(--hero-offset, 112px)); display: flex; flex-direction: column; justify-content: center; }
+.hero > .container { width: 100%; }
+/* Desktop: headline at the top of the photo, buttons at its bottom, subline centred between them */
+@media (min-width: 901px) {
+  .hero-copy { justify-content: space-between; }
+  .hero-copy > .lead { margin-top: 0; max-width: 34ch; font-size: clamp(19px, 1.65vw, 24px); line-height: 1.7; }
+  .hero-copy > .hero-cta { margin-top: 0; padding-top: 0; }
+}
