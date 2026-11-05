@@ -472,7 +472,7 @@ a.line:hover { color: #7fd4f5; }
   -webkit-tap-highlight-color: transparent;
 }
 .cf-card:focus-visible { outline: 3px solid var(--c-primary); outline-offset: 2px; }
-.cf-media { position: relative; display: block; flex: 1; min-height: 0; background: #eaf3f9; overflow: hidden; }
+.cf-media { position: relative; display: block; flex: 1; min-height: 0; background: #fff; overflow: hidden; }
 .cf-media img {
   position: relative; z-index: 1; width: 100%; height: 100%;
   object-fit: contain; padding: 6px; display: block; pointer-events: none; -webkit-user-drag: none;
@@ -513,13 +513,13 @@ a.line:hover { color: #7fd4f5; }
 .model-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--c-primary-soft-2); }
 .model-media {
   position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
-  background: #eaf3f9; border: 0; cursor: zoom-in; display: block;
+  background: #fff; border: 0; cursor: zoom-in; display: block;
 }
-/* Decorative water-splash layer — a SEPARATE layer behind the product.
+/* Backdrop layer behind the product — now plain (product images carry their own water splash).
    It may fill/cover/crop freely; it never affects the product image. */
 .model-water {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('/products/water-splash.png') center bottom / cover no-repeat;
+  background: none;
 }
 /* Product image — ALWAYS shown complete (contain), never cropped. It sits
    ABOVE the water layer; the two have completely independent sizing rules. */
@@ -623,12 +623,12 @@ a.line:hover { color: #7fd4f5; }
 .lightbox-frame {
   position: relative; aspect-ratio: 3 / 4;
   max-height: 82vh; max-width: min(620px, 92vw);
-  border-radius: 14px; overflow: hidden; background: #eef5fb;
+  border-radius: 14px; overflow: hidden; background: #fff;
   box-shadow: 0 30px 80px rgba(0,0,0,.5);
 }
 .lightbox-frame .model-water {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: url('/products/water-splash.png') center bottom / cover no-repeat;
+  background: none;
 }
 .lightbox-frame img {
   position: relative; z-index: 1;
@@ -681,7 +681,7 @@ a.line:hover { color: #7fd4f5; }
 .pdetail-media-col { padding: 24px; display: flex; flex-direction: column; }
 .pdetail-media {
   position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
-  border-radius: var(--radius); background: #eaf3f9; border: 0; cursor: zoom-in; display: block;
+  border-radius: var(--radius); background: #fff; border: 0; cursor: zoom-in; display: block;
 }
 .pdetail-media img {
   position: relative; z-index: 1; width: 100%; height: 100%;
@@ -870,7 +870,7 @@ a.line:hover { color: #7fd4f5; }
 .quiz-result-title { font-size: clamp(22px, 3.5vw, 30px); font-weight: 800; outline: none; }
 .quiz-primary { display: grid; grid-template-columns: .8fr 1.2fr; gap: 22px; margin-top: 20px; align-items: center; }
 @media (max-width: 640px) { .quiz-primary { grid-template-columns: 1fr; } }
-.quiz-primary-media { position: relative; aspect-ratio: 3/4; border-radius: var(--radius); overflow: hidden; background: #eaf3f9; }
+.quiz-primary-media { position: relative; aspect-ratio: 3/4; border-radius: var(--radius); overflow: hidden; background: #fff; }
 .quiz-primary-media img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; padding: 8px; }
 .quiz-score { display: flex; align-items: center; gap: 12px; }
 .quiz-score-num { font-family: var(--font-head); font-weight: 800; font-size: 34px; color: var(--c-primary-dark); }
