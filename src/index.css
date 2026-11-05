@@ -103,18 +103,76 @@ button {
   white-space: nowrap;
 }
 .btn:active { transform: translateY(1px); }
+/* Liquid-glass buttons (option 4A): the glass look is built into the button —
+   a curved gloss on top (::before), light gathering at the bottom edge plus a
+   highlight that follows the pointer (::after, driven by --mx/--my/--spec from
+   src/liquidButtons.js). Primary = blue water drop, ghost = clear glass. */
+.btn-primary, .btn-ghost {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform .5s cubic-bezier(.3, 1.6, .5, 1), box-shadow .35s ease, background .2s ease;
+}
+.btn-primary::before, .btn-ghost::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 8%; right: 8%; top: 2px;
+  height: 48%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.btn-primary::after, .btn-ghost::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(70px 50px at var(--mx, 50%) var(--my, 35%), rgba(255, 255, 255, var(--spec, 0)), rgba(255, 255, 255, 0) 70%),
+    radial-gradient(70% 90% at 50% 125%, var(--glow, rgba(150, 225, 255, .75)), rgba(150, 225, 255, 0) 70%);
+}
+.btn-primary:hover, .btn-ghost:hover,
+.btn-primary.is-on, .btn-ghost.is-on { transform: scale(1.045); --spec: .6; }
+.btn-primary:active, .btn-ghost:active { transform: scale(.96); transition-duration: .15s; }
+
 .btn-primary {
-  background: linear-gradient(180deg, var(--c-primary), var(--c-primary-dark));
   color: #fff;
-  box-shadow: 0 8px 18px rgba(10, 155, 214, 0.35);
+  border: 1px solid rgba(255, 255, 255, .55);
+  text-shadow: 0 1px 1px rgba(4, 50, 75, .35);
+  background: linear-gradient(180deg, #3db5ea 0%, #0a8fcb 48%, #06699a 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .9),
+    inset 0 -8px 14px rgba(4, 60, 90, .35),
+    inset 0 0 0 1px rgba(255, 255, 255, .18),
+    0 10px 24px rgba(7, 110, 160, .28),
+    0 2px 5px rgba(7, 94, 134, .2);
 }
-.btn-primary:hover { box-shadow: 0 10px 24px rgba(10, 155, 214, 0.45); }
+.btn-primary:hover, .btn-primary.is-on {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .9),
+    inset 0 -8px 14px rgba(4, 60, 90, .35),
+    inset 0 0 0 1px rgba(255, 255, 255, .18),
+    0 16px 34px rgba(7, 110, 160, .34),
+    0 3px 6px rgba(7, 94, 134, .2);
+}
 .btn-ghost {
-  background: #fff;
+  --glow: rgba(10, 155, 214, .28);
   color: var(--c-primary-dark);
-  border: 1.5px solid var(--c-primary-soft-2);
+  border: 1px solid rgba(7, 130, 184, .28);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .98) 0%, rgba(232, 246, 253, .95) 55%, rgba(206, 236, 250, .95) 100%);
+  box-shadow:
+    inset 0 1px 1px #fff,
+    inset 0 -6px 12px rgba(7, 130, 184, .14),
+    0 8px 20px rgba(7, 94, 134, .13),
+    0 1px 3px rgba(7, 94, 134, .12);
 }
-.btn-ghost:hover { border-color: var(--c-primary); background: var(--c-primary-soft); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-ghost { transition: none; }
+  .btn-primary:hover, .btn-ghost:hover, .btn-primary.is-on, .btn-ghost.is-on { transform: none; }
+}
 
 /* Section rhythm */
 .section { padding-block: clamp(48px, 7vw, 88px); }
