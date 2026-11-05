@@ -94,6 +94,7 @@ export const content = {
         { img: '/products/product-alpha.png', name: 'מסן ראשי משולב עמיעד אלפא', model: '', warranty: 'שנה אחריות', chips: ['חיבורי נירוסטה', 'שסתום שטיפה'], desc: 'מסנן ALPHA של עמיעד עם חיבורי נירוסטה ותחזוקה קלה.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: true },
       ],
     },
+    reviews: { eyebrow: 'לקוחות ממליצים', title: 'מה הלקוחות אומרים עלינו', badge: n => `ציון ממוצע במידרג · ${n} חוות דעת`, all: n => `לכל ${n} חוות הדעת במידרג`, more: 'קרא עוד', less: 'הצג פחות', scoreLabel: 'ציון', outOf: 'מתוך 10', note: 'חוות דעת אמיתיות של לקוחות מאתר מידרג, מובאות כלשונן.' },
     featuresHead: { eyebrow: 'למה לבחור בנו', title: 'טיפול במים שאפשר לסמוך עליו', sub: '' },
     features: [
       { title: 'סינון בדרגה גבוהה', desc: 'מסלק כלור, עופרת, כספית, פלואור, אבנית, בקטריות ואצות — מים בטוחים באמת.' },
@@ -242,6 +243,7 @@ export const content = {
         { img: '/products/product-alpha.png', name: 'Amiad Alpha Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['Stainless fittings', 'Flush valve'], desc: 'Amiad’s ALPHA filter with stainless-steel fittings and easy maintenance.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard'], madeInIsrael: true },
       ],
     },
+    reviews: { eyebrow: 'Customer reviews', title: 'What our customers say', badge: n => `Average score on Midrag · ${n} reviews`, all: n => `See all ${n} reviews on Midrag`, more: 'Read more', less: 'Show less', scoreLabel: 'Score', outOf: 'out of 10', note: 'Real customer reviews from Midrag, Israel\'s service-provider review site — shown in the original Hebrew.' },
     featuresHead: { eyebrow: 'Why choose us', title: 'Water treatment you can trust', sub: '' },
     features: [
       { title: 'High-grade filtration', desc: 'Removes chlorine, lead, mercury, fluoride, scale, bacteria and algae — truly safe water.' },

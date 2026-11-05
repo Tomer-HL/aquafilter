@@ -12,6 +12,7 @@ import Accessibility from './Accessibility.jsx'
 import ModelsCoverflow from './ModelsCoverflow.jsx'
 import CountUp from './CountUp.jsx'
 import VideoSection from './VideoSection.jsx'
+import Reviews from './Reviews.jsx'
 import './App.css'
 
 const WA_URL = 'https://wa.me/972506830881'   // WhatsApp destination (unchanged)
@@ -274,6 +275,9 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* Customer reviews — real Midrag reviews, verbatim (src/midragReviews.js) */}
+        <Reviews lang={lang} copy={t.reviews} />
 
         {/* Categories */}
         <section className="section cats" id="categories">
