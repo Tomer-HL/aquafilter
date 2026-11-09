@@ -158,7 +158,7 @@ export default function App() {
                 <a className="btn btn-ghost" href="#tiers">{t.hero.ctaSecondary}</a>
               </div>
             </div>
-            <HeroStudio alt={t.mainFilters.items[0].name} />
+            <HeroStudio src="/products/hero-slofos.webp" alt={t.hero.imageAlt} />
           </div>
         </section>
 

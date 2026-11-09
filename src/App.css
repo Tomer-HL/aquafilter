@@ -1009,19 +1009,19 @@ a.line:hover { color: #7fd4f5; }
 .hero-studio .hero-product { max-height: 540px; width: auto; max-width: 100%; filter: none; }
 @media (prefers-reduced-motion: reduce) { .hero-studio-tilt { transition: none; } }
 
-/* Phones/tablets: headline on top, then the subline (right) beside the picture (left), then buttons and stats */
+/* Phones/tablets: headline on top, then the (landscape) Slofos lineup photo full width, then the subline and buttons */
 @media (max-width: 900px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
-    grid-template-areas: "title title" "lead visual" "cta cta";
-    gap: 14px 12px; align-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "visual" "lead" "cta";
+    gap: 14px; align-items: center;
   }
   .hero-copy { display: contents; }
   .hero-copy > h1 { grid-area: title; }
   .hero-copy > .lead { grid-area: lead; margin-top: 0; font-size: 16px; line-height: 1.6; }
   .hero-copy > .hero-cta { grid-area: cta; margin-top: 6px; }
-  .hero-studio { grid-area: visual; order: 0; justify-self: start; }
-  .hero-studio .hero-product { max-height: 280px; }
+  .hero-studio { grid-area: visual; order: 0; justify-self: center; width: 100%; }
+  .hero-studio .hero-product { max-height: 300px; width: 100%; object-fit: contain; }
 }
 
 /* ================= Hero headline · glass answer (matches the glass buttons) ================= */

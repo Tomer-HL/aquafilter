@@ -20,12 +20,6 @@
 
 // ---- Per-product suitability profiles (derived only from banners/verified data)
 export const PROFILES = {
-  compact: {
-    coverage: 'poe',
-    problems: ['scale', 'sediment', 'combo'],
-    flushValve: true, washable: false, twoStage: false,
-    madeInIsrael: true, warrantyYears: 1, compact: true,
-  },
   combined: {
     coverage: 'poe',
     problems: ['scale', 'sediment', 'combo'],
@@ -37,6 +31,12 @@ export const PROFILES = {
     problems: ['scale', 'sediment', 'combo', 'heavy'],
     flushValve: false, washable: false, twoStage: true,
     madeInIsrael: false, warrantyYears: 2, compact: false,
+  },
+  compact: {
+    coverage: 'poe',
+    problems: ['scale', 'sediment', 'combo'],
+    flushValve: true, washable: false, twoStage: false,
+    madeInIsrael: true, warrantyYears: 1, compact: true,
   },
   asf770: {
     coverage: 'poe',

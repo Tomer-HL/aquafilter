@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 
-// Hero product: the real water-splash photo on its own (no backdrop, badge or label).
+// Hero product: the Slofos lineup (two-stage + combined) water-splash photo on its own (no backdrop, badge or label).
 // It tilts in 3D toward the pointer; no tilt for reduced motion or the accessibility
 // widget's "stop animations".
-export default function HeroStudio({ alt }) {
+export default function HeroStudio({ src, alt }) {
   const stage = useRef(null)
   const tilt = useRef(null)
 
@@ -23,7 +23,7 @@ export default function HeroStudio({ alt }) {
   return (
     <div className="hero-visual hero-studio" ref={stage} onPointerMove={move} onPointerLeave={reset} onPointerCancel={reset}>
       <div className="hero-studio-tilt" ref={tilt}>
-        <img className="hero-product" src="/products/hero-splash-full.webp" alt={alt} />
+        <img className="hero-product" src={src} alt={alt} />
       </div>
     </div>
   )

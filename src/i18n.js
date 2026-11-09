@@ -33,6 +33,7 @@ export const content = {
       ctaSecondary: 'לכל המוצרים',
       highlights: ['מונע התגבשות אבנית עד 85%', 'סינון 50 מיקרון · רשת נירוסטה', 'מתנה: שסתום אל־חוזר ¾״'],
       badge: 'מניעת אבנית',
+      imageAlt: 'מערכות הסינון של סלופוס: מערכת סינון ראשית דו־שלבית ומסנן ראשי משולב עם מחסנית רשת נירוסטה',
       stat1: '500+', stat1l: 'לקוחות מרוצים',
       stat2: '10', stat2l: 'שנות ניסיון',
       stat3: '3 שנות', stat3l: 'אחריות מלאה',
@@ -89,10 +90,10 @@ export const content = {
       carouselLabel: 'דגמי המסננים', prevLabel: 'הדגם הקודם', nextLabel: 'הדגם הבא',
       /* bannerDesc / certs / madeInIsrael נלקחו מילה־במילה מהבאנר של כל דגם */
       items: [
-        { img: '/products/splash-compact.webp', name: 'מסן ראשי משולב עמיעד קומפקט', model: '', warranty: 'שנה אחריות', chips: ['מניעת אבנית 85%', '50µ רשת נירוסטה'], desc: 'פתרון קומפקטי וחזק של עמיעד — חוסך מקום, עם שסתום שטיפה לניקוי קל.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: true },
         { img: '/products/splash-combined.webp', name: 'מסן ראשי משולב', model: '', warranty: 'שנה אחריות', chips: ['50µ רשת נירוסטה', 'תוצרת ארה״ב'], desc: 'גוף כחול איכותי עם מחסנית רשת נירוסטה הניתנת לשטיפה ולשימוש חוזר.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי', 'סלופוס — תוצרת ארה״ב'], madeInIsrael: false },
         { img: '/products/splash-two-stage.webp', name: 'מערכת סינון ראשית דו־שלבית', model: '', warranty: 'שנתיים אחריות', chips: ['סינון דו־שלבי', 'תוצרת ארה״ב'], desc: 'שני שלבי הגנה בכניסה אחת — מחסנית מניעת אבנית ושלב סינון לכלוך.', bannerDesc: 'מחסנית עיוורת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי', 'סלופוס — תוצרת ארה״ב'], madeInIsrael: false },
         { img: '/products/splash-asf770.webp', name: 'מסן ראשי משולב ASF770', model: 'ASF770', warranty: '3 שנות אחריות', chips: ['שסתום שטיפה', 'סינון 50µ'], desc: 'הדגם עם האחריות הארוכה ביותר — 3 שנים, כולל שסתום שטיפה נוח.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון.', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: false },
+        { img: '/products/splash-compact.webp', name: 'מסן ראשי משולב עמיעד קומפקט', model: '', warranty: 'שנה אחריות', chips: ['מניעת אבנית 85%', '50µ רשת נירוסטה'], desc: 'פתרון קומפקטי וחזק של עמיעד — חוסך מקום, עם שסתום שטיפה לניקוי קל.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: true },
         { img: '/products/splash-alpha.webp', name: 'מסן ראשי משולב עמיעד אלפא', model: '', warranty: 'שנה אחריות', chips: ['חיבורי נירוסטה', 'שסתום שטיפה'], desc: 'מסנן ALPHA של עמיעד עם חיבורי נירוסטה ותחזוקה קלה.', bannerDesc: 'מחסנית משולבת — למניעת התגבשות אבנית עד 85% וסינון לכלוך ברמת 50 מיקרון (רשת נירוסטה).', certs: ['NSF', 'תקן ישראלי'], madeInIsrael: true },
       ],
     },
@@ -100,7 +101,7 @@ export const content = {
     featuresHead: { eyebrow: 'למה לבחור בנו', title: 'טיפול במים שאפשר לסמוך עליו', sub: '' },
     features: [
       { title: 'סינון בדרגה גבוהה', desc: 'מסלק כלור, עופרת, כספית, פלואור, אבנית, בקטריות ואצות — מים בטוחים באמת.' },
-      { title: 'מוצרים מקוריים ממותגים מובילים', desc: 'עמיעד (תוצרת ישראל), סלופוס ומותגים מובילים נוספים — מוצרים מקוריים בלבד, ללא תחליפים ובאיכות גבוהה.' },
+      { title: 'מוצרים מקוריים ממותגים מובילים', desc: 'סלופוס, עמיעד (תוצרת ישראל) ומותגים מובילים נוספים — מוצרים מקוריים בלבד, ללא תחליפים ובאיכות גבוהה.' },
       { title: 'התקנה ואחריות', desc: 'טכנאים מקצועיים בכל הארץ, אחריות מלאה ותמיכה שוטפת לאורך כל הדרך.' },
       { title: 'התאמה אישית', desc: 'נעזור לכם לבחור בדיוק את המערכת שמתאימה לאיכות המים והשימוש שלכם.' },
     ],
@@ -134,7 +135,7 @@ export const content = {
       badge: 'מומחי אבנית',
     },
     brandsHead: { title: 'יצרנים מובילים איתם אנחנו עובדים' },
-    brandsList: ['עמיעד', 'סלופוס'],
+    brandsList: ['סלופוס', 'עמיעד'],
     footer: {
       tagline: 'א.מ שיווק מסננים — מניעת אבנית, סינון מים, וסתי לחץ, שסתומי אל־חוזר והחלפת ברזים.',
       colShop: 'שירותים',
@@ -185,6 +186,7 @@ export const content = {
       ctaSecondary: 'Shop all products',
       highlights: ['Prevents scale buildup up to 85%', '50-micron filtration · stainless mesh', 'Gift: ¾" check valve'],
       badge: 'scale prevention',
+      imageAlt: 'Slofos filtration systems: a two-stage main filtration system and a combined main filter with a stainless-steel mesh cartridge',
       stat1: '500+', stat1l: 'happy customers',
       stat2: '10', stat2l: 'years of experience',
       stat3: '3-year', stat3l: 'full warranty',
@@ -240,10 +242,10 @@ export const content = {
       swipeHint: 'Swipe to see all {n} models',
       carouselLabel: 'Filter models', prevLabel: 'Previous model', nextLabel: 'Next model',
       items: [
-        { img: '/products/splash-compact.webp', name: 'Amiad Compact Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['85% scale prevention', '50µ stainless mesh'], desc: 'A compact, powerful Amiad unit — space-saving, with a flush valve for easy cleaning.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard'], madeInIsrael: true },
         { img: '/products/splash-combined.webp', name: 'Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['50µ stainless mesh', 'Made in USA'], desc: 'Quality blue housing with a washable, reusable stainless-steel mesh cartridge.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard', 'Slofos — Made in USA'], madeInIsrael: false },
         { img: '/products/splash-two-stage.webp', name: 'Two-Stage Main Filtration System', model: '', warranty: '2-year warranty', chips: ['Two-stage filtration', 'Made in USA'], desc: 'Two layers of protection at one inlet — an anti-scale cartridge plus a dirt-filtration stage.', bannerDesc: 'Sediment (blind) cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard', 'Slofos — Made in USA'], madeInIsrael: false },
         { img: '/products/splash-asf770.webp', name: 'ASF770 Combined Main Filter', model: 'ASF770', warranty: '3-year warranty', chips: ['Flush valve', '50µ filtration'], desc: 'The model with the longest warranty — 3 years, with a convenient flush valve.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns.', certs: ['NSF', 'Israeli Standard'], madeInIsrael: false },
+        { img: '/products/splash-compact.webp', name: 'Amiad Compact Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['85% scale prevention', '50µ stainless mesh'], desc: 'A compact, powerful Amiad unit — space-saving, with a flush valve for easy cleaning.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard'], madeInIsrael: true },
         { img: '/products/splash-alpha.webp', name: 'Amiad Alpha Combined Main Filter', model: '', warranty: '1-year warranty', chips: ['Stainless fittings', 'Flush valve'], desc: 'Amiad’s ALPHA filter with stainless-steel fittings and easy maintenance.', bannerDesc: 'Combined cartridge — prevents scale buildup up to 85% and filters dirt down to 50 microns (stainless-steel mesh).', certs: ['NSF', 'Israeli Standard'], madeInIsrael: true },
       ],
     },
@@ -251,7 +253,7 @@ export const content = {
     featuresHead: { eyebrow: 'Why choose us', title: 'Water treatment you can trust', sub: '' },
     features: [
       { title: 'High-grade filtration', desc: 'Removes chlorine, lead, mercury, fluoride, scale, bacteria and algae — truly safe water.' },
-      { title: 'Genuine, leading-brand products', desc: 'Amiad (made in Israel), Slofos and other leading brands — genuine products only, no substitutes, high quality.' },
+      { title: 'Genuine, leading-brand products', desc: 'Slofos, Amiad (made in Israel) and other leading brands — genuine products only, no substitutes, high quality.' },
       { title: 'Install & warranty', desc: 'Professional technicians nationwide, full warranty and ongoing support all the way.' },
       { title: 'Personal fit', desc: 'We help you pick exactly the system that matches your water quality and usage.' },
     ],
@@ -285,7 +287,7 @@ export const content = {
       badge: 'Scale experts',
     },
     brandsHead: { title: 'Leading manufacturers we work with' },
-    brandsList: ['Amiad', 'Slofos'],
+    brandsList: ['Slofos', 'Amiad'],
     footer: {
       tagline: 'A.M Filters — scale prevention, water filtration, pressure regulators, check valves & faucet replacement.',
       colShop: 'Services',
