@@ -412,7 +412,7 @@ export default function App() {
                 <div className="pdetail-tags">
                   <span className="ptag ptag-warranty"><ShieldCheck size={15} /> {details.warranty}</span>
                   <span className="ptag"><Wrench size={15} /> {t.mainFilters.install}</span>
-                  {details.madeInIsrael && <span className="ptag ptag-il"><Award size={15} /> {t.mainFilters.madeInIsrael}</span>}
+                  {details.origin?.map((o, j) => <span className="ptag ptag-il" key={'o'+j}><Award size={15} /> {o}</span>)}
                 </div>
 
                 <div className="pdetail-gift"><Gift size={18} /> <b>{t.mainFilters.giftLabel}</b> {t.mainFilters.gift}</div>
