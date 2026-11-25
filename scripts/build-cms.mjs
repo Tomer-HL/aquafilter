@@ -4,7 +4,8 @@
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { defaults as content } from '../src/i18n.defaults.js'
 
-const SKIP_TOP = new Set(['dir', 'label'])          // technical keys, never edited by the client
+// technical keys, plus text that exists in i18n.defaults.js but is not rendered anywhere on the site (verified against src/*.jsx)
+const SKIP_TOP = new Set(['dir', 'label', 'zoomLabel', 'services', 'tiers', 'featuredHead', 'products', 'addToCart', 'inclVat', 'finder'])
 const SKIP_PATH = new Set(['ruler.dir', 'ruler.aria'])
 const L = { // Hebrew labels for the admin screen
   waLabel: 'תיאור כפתור וואטסאפ (לנגישות)', waMessage: 'הודעת הפתיחה בוואטסאפ', zoomLabel: 'תיאור הגדלת תמונה', close: 'טקסט "סגירה"',

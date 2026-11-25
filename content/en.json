@@ -1,5 +1,4 @@
 {
-  "zoomLabel": "Enlarge image",
   "close": "Close",
   "waLabel": "Contact us on WhatsApp",
   "waMessage": "Hi, I found you through the A.M Filters website and would like details about a main scale-prevention filter for my home.",
@@ -7,7 +6,6 @@
     "name": "A.M Filters",
     "tagline": "Scale Prevention"
   },
-  "services": "Pressure regulators · Check valves · Faucet replacement",
   "announcements": [
     "Combined Main Filter — up to 85% scale prevention · Gift: ¾\" check valve",
     "Water-pressure regulators · Check valves · Faucet replacement",
@@ -68,48 +66,6 @@
     "title": "Choose a filtration system",
     "sub": "The combined main filters we install — up to 85% scale prevention and 50-micron filtration (stainless mesh)"
   },
-  "tiers": [
-    {
-      "badge": "Best seller",
-      "name": "Premium Reverse Osmosis",
-      "model": "BE WELL 6",
-      "desc": "Under-sink · Reverse osmosis · 6-stage filtration · Desalination-ready · Anti-bacterial",
-      "price": "₪2,000",
-      "cta": "Details"
-    },
-    {
-      "badge": "",
-      "name": "Upgraded Purifier",
-      "model": "BE WELL 4",
-      "desc": "Under-sink · 4-stage purification · Desalination-ready · Anti-bacterial",
-      "price": "₪1,150",
-      "cta": "Details"
-    },
-    {
-      "badge": "",
-      "name": "Essential Purifier",
-      "model": "BE WELL 1",
-      "desc": "Under-sink · Single-stage system · Desalination-ready · Anti-bacterial",
-      "price": "₪500",
-      "cta": "Details"
-    },
-    {
-      "badge": "Whole home",
-      "name": "Apartment System",
-      "model": "DUO-2",
-      "desc": "Two-stage filter at the home inlet · Prevents scale · Filters sand, rust & debris",
-      "price": "₪690",
-      "cta": "Details"
-    },
-    {
-      "badge": "Gift: ¾\" check valve",
-      "name": "Combined Main Filter",
-      "model": "50µ Stainless Mesh",
-      "desc": "Whole-home · Prevents scale buildup up to 85% · 50-micron dirt filtration · Stainless-steel mesh · Full installation & 1-year warranty",
-      "price": "Get a quote",
-      "cta": "Details"
-    }
-  ],
   "mainFilter": {
     "eyebrow": "Flagship product",
     "title": "Combined Main Filter",
@@ -345,49 +301,6 @@
       "link": "Installation services"
     }
   ],
-  "featuredHead": {
-    "eyebrow": "Featured products",
-    "title": "Most wanted this month",
-    "sub": ""
-  },
-  "products": [
-    {
-      "name": "BE WELL-6 6-Stage Reverse Osmosis, Anti-Bacterial",
-      "tag": "RO",
-      "price": "₪2,000",
-      "old": "₪2,400",
-      "rating": 5
-    },
-    {
-      "name": "Be Well 3 Three-Stage KDF-Based Purifier",
-      "tag": "Under-sink",
-      "price": "₪1,150",
-      "old": "",
-      "rating": 5
-    },
-    {
-      "name": "Be Well-1 Single-Stage OMNIPURE USA Purifier",
-      "tag": "Essential",
-      "price": "₪500",
-      "old": "₪620",
-      "rating": 4
-    },
-    {
-      "name": "Two-Stage Anti-Scale, Sand & Debris Filter — Apartment",
-      "tag": "Whole home",
-      "price": "₪690",
-      "old": "",
-      "rating": 5
-    }
-  ],
-  "addToCart": "Add to cart",
-  "inclVat": "incl. VAT",
-  "finder": {
-    "eyebrow": "Not sure?",
-    "title": "Which system fits me?",
-    "sub": "Answer a few short questions and we’ll recommend the exact filtration system for your home.",
-    "cta": "Start the quiz"
-  },
   "about": {
     "eyebrow": "About us",
     "title": "A.M Filters — scale-prevention specialists",

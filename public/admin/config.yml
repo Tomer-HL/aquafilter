@@ -23,10 +23,6 @@ collections:
         name: he
         file: content/he.json
         fields:
-        - label: "תיאור הגדלת תמונה"
-          name: "zoomLabel"
-          widget: string
-          required: false
         - label: "טקסט \"סגירה\""
           name: "close"
           widget: string
@@ -52,10 +48,6 @@ collections:
               name: "tagline"
               widget: string
               required: false
-        - label: "שורת השירותים"
-          name: "services"
-          widget: string
-          required: false
         - label: "פסי ההכרזות העליונים"
           name: "announcements"
           widget: list
@@ -243,36 +235,6 @@ collections:
             - label: "תת-כותרת"
               name: "sub"
               widget: text
-              required: false
-        - label: "המערכות המומלצות"
-          name: "tiers"
-          widget: list
-          required: false
-          summary: "{{fields.badge}}"
-          fields:
-            - label: "תווית"
-              name: "badge"
-              widget: string
-              required: false
-            - label: "שם"
-              name: "name"
-              widget: string
-              required: false
-            - label: "דגם"
-              name: "model"
-              widget: string
-              required: false
-            - label: "תיאור"
-              name: "desc"
-              widget: text
-              required: false
-            - label: "מחיר"
-              name: "price"
-              widget: string
-              required: false
-            - label: "טקסט הכפתור"
-              name: "cta"
-              widget: string
               required: false
         - label: "המוצר המוביל (מסנן ראשי משולב)"
           name: "mainFilter"
@@ -563,79 +525,6 @@ collections:
               required: false
             - label: "טקסט הקישור"
               name: "link"
-              widget: string
-              required: false
-        - label: "כותרת המוצרים הנבחרים"
-          name: "featuredHead"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: string
-              required: false
-        - label: "המוצרים הנבחרים"
-          name: "products"
-          widget: list
-          required: false
-          summary: "{{fields.name}}"
-          fields:
-            - label: "שם"
-              name: "name"
-              widget: string
-              required: false
-            - label: "תגית"
-              name: "tag"
-              widget: string
-              required: false
-            - label: "מחיר"
-              name: "price"
-              widget: string
-              required: false
-            - label: "מחיר קודם (למבצע)"
-              name: "old"
-              widget: string
-              required: false
-            - label: "דירוג (1-5)"
-              name: "rating"
-              widget: number
-              value_type: int
-              required: false
-        - label: "כפתור \"הוספה לעגלה\""
-          name: "addToCart"
-          widget: string
-          required: false
-        - label: "טקסט \"כולל מע״מ\""
-          name: "inclVat"
-          widget: string
-          required: false
-        - label: "שאלון \"איזו מערכת מתאימה לי\""
-          name: "finder"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: string
-              required: false
-            - label: "טקסט הכפתור"
-              name: "cta"
               widget: string
               required: false
         - label: "מי אנחנו"
@@ -740,10 +629,6 @@ collections:
         name: en
         file: content/en.json
         fields:
-        - label: "תיאור הגדלת תמונה"
-          name: "zoomLabel"
-          widget: string
-          required: false
         - label: "טקסט \"סגירה\""
           name: "close"
           widget: string
@@ -769,10 +654,6 @@ collections:
               name: "tagline"
               widget: string
               required: false
-        - label: "שורת השירותים"
-          name: "services"
-          widget: string
-          required: false
         - label: "פסי ההכרזות העליונים"
           name: "announcements"
           widget: list
@@ -960,36 +841,6 @@ collections:
             - label: "תת-כותרת"
               name: "sub"
               widget: text
-              required: false
-        - label: "המערכות המומלצות"
-          name: "tiers"
-          widget: list
-          required: false
-          summary: "{{fields.badge}}"
-          fields:
-            - label: "תווית"
-              name: "badge"
-              widget: string
-              required: false
-            - label: "שם"
-              name: "name"
-              widget: string
-              required: false
-            - label: "דגם"
-              name: "model"
-              widget: string
-              required: false
-            - label: "תיאור"
-              name: "desc"
-              widget: text
-              required: false
-            - label: "מחיר"
-              name: "price"
-              widget: string
-              required: false
-            - label: "טקסט הכפתור"
-              name: "cta"
-              widget: string
               required: false
         - label: "המוצר המוביל (מסנן ראשי משולב)"
           name: "mainFilter"
@@ -1280,79 +1131,6 @@ collections:
               required: false
             - label: "טקסט הקישור"
               name: "link"
-              widget: string
-              required: false
-        - label: "כותרת המוצרים הנבחרים"
-          name: "featuredHead"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: string
-              required: false
-        - label: "המוצרים הנבחרים"
-          name: "products"
-          widget: list
-          required: false
-          summary: "{{fields.name}}"
-          fields:
-            - label: "שם"
-              name: "name"
-              widget: string
-              required: false
-            - label: "תגית"
-              name: "tag"
-              widget: string
-              required: false
-            - label: "מחיר"
-              name: "price"
-              widget: string
-              required: false
-            - label: "מחיר קודם (למבצע)"
-              name: "old"
-              widget: string
-              required: false
-            - label: "דירוג (1-5)"
-              name: "rating"
-              widget: number
-              value_type: int
-              required: false
-        - label: "כפתור \"הוספה לעגלה\""
-          name: "addToCart"
-          widget: string
-          required: false
-        - label: "טקסט \"כולל מע״מ\""
-          name: "inclVat"
-          widget: string
-          required: false
-        - label: "שאלון \"איזו מערכת מתאימה לי\""
-          name: "finder"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: string
-              required: false
-            - label: "טקסט הכפתור"
-              name: "cta"
               widget: string
               required: false
         - label: "מי אנחנו"
