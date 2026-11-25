@@ -113,7 +113,7 @@ export default function App() {
           </a>
 
           <nav className="main-nav" aria-label="Main">
-            {NAV.map(n => (
+            {NAV.filter(n => t.nav[n.key]).map(n => (
               <a key={n.key} href={n.href} className={n.sale ? 'sale' : undefined}>{t.nav[n.key]}</a>
             ))}
           </nav>
@@ -138,7 +138,7 @@ export default function App() {
           </span>
           <button className="icon-btn" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={22} /></button>
         </div>
-        {NAV.map(n => (
+        {NAV.filter(n => t.nav[n.key]).map(n => (
           <a key={n.key} href={n.href} className={n.sale ? 'sale' : undefined} onClick={() => setMenuOpen(false)}>{t.nav[n.key]}</a>
         ))}
         <button className="lang-toggle" style={{ marginTop: 14 }} onClick={toggleLang}>

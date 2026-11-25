@@ -23,6 +23,152 @@ collections:
         name: he
         file: content/he.json
         fields:
+        - label: "המוצרים באתר (כרטיסי הדגמים: שם, תיאור, תגיות, אחריות)"
+          name: "mainFilters"
+          widget: object
+          collapsed: true
+          fields:
+            - label: "כותרת קטנה"
+              name: "eyebrow"
+              widget: string
+              required: false
+            - label: "כותרת"
+              name: "title"
+              widget: string
+              required: false
+            - label: "תת-כותרת"
+              name: "sub"
+              widget: text
+              required: false
+            - label: "כפתור הזמנה"
+              name: "orderCta"
+              widget: string
+              required: false
+            - label: "כפתור פרטים"
+              name: "detailsCta"
+              widget: string
+              required: false
+            - label: "כותרת היתרונות"
+              name: "benefitsHead"
+              widget: string
+              required: false
+            - label: "יתרונות"
+              name: "benefits"
+              widget: list
+              required: false
+              summary: "{{fields.label}}"
+              fields:
+                - label: "אייקון (לא לשנות)"
+                  name: "icon"
+                  widget: hidden
+                - label: "כיתוב"
+                  name: "label"
+                  widget: string
+                  required: false
+            - label: "התקנה"
+              name: "install"
+              widget: string
+              required: false
+            - label: "מתנה"
+              name: "gift"
+              widget: string
+              required: false
+            - label: "תווית מתנה"
+              name: "giftLabel"
+              widget: string
+              required: false
+            - label: "תווית אחריות"
+              name: "warrantyLabel"
+              widget: string
+              required: false
+            - label: "תווית תקנים"
+              name: "certsLabel"
+              widget: string
+              required: false
+            - label: "תוצרת ישראל"
+              name: "madeInIsrael"
+              widget: string
+              required: false
+            - label: "הערת תמונה"
+              name: "disclaimer"
+              widget: string
+              required: false
+            - label: "קישור למדרג"
+              name: "madragUrl"
+              widget: string
+              required: false
+            - label: "כיתוב קישור מדרג"
+              name: "madragLabel"
+              widget: string
+              required: false
+            - label: "רמז הגדלה"
+              name: "zoomHint"
+              widget: string
+              required: false
+            - label: "רמז החלקה"
+              name: "swipeHint"
+              widget: string
+              required: false
+            - label: "תיאור הקרוסלה"
+              name: "carouselLabel"
+              widget: string
+              required: false
+            - label: "הקודם"
+              name: "prevLabel"
+              widget: string
+              required: false
+            - label: "הבא"
+              name: "nextLabel"
+              widget: string
+              required: false
+            - label: "רשימת הדגמים (כל כרטיס הוא מוצר)"
+              name: "items"
+              widget: list
+              required: false
+              summary: "{{fields.name}}"
+              fields:
+                - label: "נתיב תמונה (לא לשנות)"
+                  name: "img"
+                  widget: hidden
+                - label: "שם"
+                  name: "name"
+                  widget: string
+                  required: false
+                - label: "דגם"
+                  name: "model"
+                  widget: string
+                  required: false
+                - label: "אחריות"
+                  name: "warranty"
+                  widget: string
+                  required: false
+                - label: "תגיות"
+                  name: "chips"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "תיאור"
+                  name: "desc"
+                  widget: string
+                  required: false
+                - label: "תיאור הבאנר"
+                  name: "bannerDesc"
+                  widget: text
+                  required: false
+                - label: "תקנים ואישורים"
+                  name: "certs"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "ארץ ייצור"
+                  name: "origin"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "תוצרת ישראל"
+                  name: "madeInIsrael"
+                  widget: boolean
+                  required: false
         - label: "טקסט \"סגירה\""
           name: "close"
           widget: string
@@ -280,154 +426,6 @@ collections:
               name: "cta"
               widget: string
               required: false
-        - label: "דגמי המסננים הראשיים"
-          name: "mainFilters"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: text
-              required: false
-            - label: "כפתור הזמנה"
-              name: "orderCta"
-              widget: string
-              required: false
-            - label: "כפתור פרטים"
-              name: "detailsCta"
-              widget: string
-              required: false
-            - label: "כותרת היתרונות"
-              name: "benefitsHead"
-              widget: string
-              required: false
-            - label: "יתרונות"
-              name: "benefits"
-              widget: list
-              required: false
-              summary: "{{fields.icon}}"
-              fields:
-                - label: "אייקון (לא לשנות)"
-                  name: "icon"
-                  widget: string
-                  required: false
-                - label: "כיתוב"
-                  name: "label"
-                  widget: string
-                  required: false
-            - label: "התקנה"
-              name: "install"
-              widget: string
-              required: false
-            - label: "מתנה"
-              name: "gift"
-              widget: string
-              required: false
-            - label: "תווית מתנה"
-              name: "giftLabel"
-              widget: string
-              required: false
-            - label: "תווית אחריות"
-              name: "warrantyLabel"
-              widget: string
-              required: false
-            - label: "תווית תקנים"
-              name: "certsLabel"
-              widget: string
-              required: false
-            - label: "תוצרת ישראל"
-              name: "madeInIsrael"
-              widget: string
-              required: false
-            - label: "הערת תמונה"
-              name: "disclaimer"
-              widget: string
-              required: false
-            - label: "קישור למדרג"
-              name: "madragUrl"
-              widget: string
-              required: false
-            - label: "כיתוב קישור מדרג"
-              name: "madragLabel"
-              widget: string
-              required: false
-            - label: "רמז הגדלה"
-              name: "zoomHint"
-              widget: string
-              required: false
-            - label: "רמז החלקה"
-              name: "swipeHint"
-              widget: string
-              required: false
-            - label: "תיאור הקרוסלה"
-              name: "carouselLabel"
-              widget: string
-              required: false
-            - label: "הקודם"
-              name: "prevLabel"
-              widget: string
-              required: false
-            - label: "הבא"
-              name: "nextLabel"
-              widget: string
-              required: false
-            - label: "הדגמים"
-              name: "items"
-              widget: list
-              required: false
-              summary: "{{fields.img}}"
-              fields:
-                - label: "נתיב תמונה (לא לשנות)"
-                  name: "img"
-                  widget: string
-                  required: false
-                - label: "שם"
-                  name: "name"
-                  widget: string
-                  required: false
-                - label: "דגם"
-                  name: "model"
-                  widget: string
-                  required: false
-                - label: "אחריות"
-                  name: "warranty"
-                  widget: string
-                  required: false
-                - label: "תגיות"
-                  name: "chips"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "תיאור"
-                  name: "desc"
-                  widget: string
-                  required: false
-                - label: "תיאור הבאנר"
-                  name: "bannerDesc"
-                  widget: text
-                  required: false
-                - label: "תקנים ואישורים"
-                  name: "certs"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "ארץ ייצור"
-                  name: "origin"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "תוצרת ישראל"
-                  name: "madeInIsrael"
-                  widget: boolean
-                  required: false
         - label: "ביקורות לקוחות"
           name: "reviews"
           widget: object
@@ -629,6 +627,152 @@ collections:
         name: en
         file: content/en.json
         fields:
+        - label: "המוצרים באתר (כרטיסי הדגמים: שם, תיאור, תגיות, אחריות)"
+          name: "mainFilters"
+          widget: object
+          collapsed: true
+          fields:
+            - label: "כותרת קטנה"
+              name: "eyebrow"
+              widget: string
+              required: false
+            - label: "כותרת"
+              name: "title"
+              widget: string
+              required: false
+            - label: "תת-כותרת"
+              name: "sub"
+              widget: text
+              required: false
+            - label: "כפתור הזמנה"
+              name: "orderCta"
+              widget: string
+              required: false
+            - label: "כפתור פרטים"
+              name: "detailsCta"
+              widget: string
+              required: false
+            - label: "כותרת היתרונות"
+              name: "benefitsHead"
+              widget: string
+              required: false
+            - label: "יתרונות"
+              name: "benefits"
+              widget: list
+              required: false
+              summary: "{{fields.label}}"
+              fields:
+                - label: "אייקון (לא לשנות)"
+                  name: "icon"
+                  widget: hidden
+                - label: "כיתוב"
+                  name: "label"
+                  widget: string
+                  required: false
+            - label: "התקנה"
+              name: "install"
+              widget: string
+              required: false
+            - label: "מתנה"
+              name: "gift"
+              widget: string
+              required: false
+            - label: "תווית מתנה"
+              name: "giftLabel"
+              widget: string
+              required: false
+            - label: "תווית אחריות"
+              name: "warrantyLabel"
+              widget: string
+              required: false
+            - label: "תווית תקנים"
+              name: "certsLabel"
+              widget: string
+              required: false
+            - label: "תוצרת ישראל"
+              name: "madeInIsrael"
+              widget: string
+              required: false
+            - label: "הערת תמונה"
+              name: "disclaimer"
+              widget: string
+              required: false
+            - label: "קישור למדרג"
+              name: "madragUrl"
+              widget: string
+              required: false
+            - label: "כיתוב קישור מדרג"
+              name: "madragLabel"
+              widget: string
+              required: false
+            - label: "רמז הגדלה"
+              name: "zoomHint"
+              widget: string
+              required: false
+            - label: "רמז החלקה"
+              name: "swipeHint"
+              widget: string
+              required: false
+            - label: "תיאור הקרוסלה"
+              name: "carouselLabel"
+              widget: string
+              required: false
+            - label: "הקודם"
+              name: "prevLabel"
+              widget: string
+              required: false
+            - label: "הבא"
+              name: "nextLabel"
+              widget: string
+              required: false
+            - label: "רשימת הדגמים (כל כרטיס הוא מוצר)"
+              name: "items"
+              widget: list
+              required: false
+              summary: "{{fields.name}}"
+              fields:
+                - label: "נתיב תמונה (לא לשנות)"
+                  name: "img"
+                  widget: hidden
+                - label: "שם"
+                  name: "name"
+                  widget: string
+                  required: false
+                - label: "דגם"
+                  name: "model"
+                  widget: string
+                  required: false
+                - label: "אחריות"
+                  name: "warranty"
+                  widget: string
+                  required: false
+                - label: "תגיות"
+                  name: "chips"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "תיאור"
+                  name: "desc"
+                  widget: string
+                  required: false
+                - label: "תיאור הבאנר"
+                  name: "bannerDesc"
+                  widget: text
+                  required: false
+                - label: "תקנים ואישורים"
+                  name: "certs"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "ארץ ייצור"
+                  name: "origin"
+                  widget: list
+                  required: false
+                  field: { label: "פריט", name: item, widget: string }
+                - label: "תוצרת ישראל"
+                  name: "madeInIsrael"
+                  widget: boolean
+                  required: false
         - label: "טקסט \"סגירה\""
           name: "close"
           widget: string
@@ -886,154 +1030,6 @@ collections:
               name: "cta"
               widget: string
               required: false
-        - label: "דגמי המסננים הראשיים"
-          name: "mainFilters"
-          widget: object
-          collapsed: true
-          fields:
-            - label: "כותרת קטנה"
-              name: "eyebrow"
-              widget: string
-              required: false
-            - label: "כותרת"
-              name: "title"
-              widget: string
-              required: false
-            - label: "תת-כותרת"
-              name: "sub"
-              widget: text
-              required: false
-            - label: "כפתור הזמנה"
-              name: "orderCta"
-              widget: string
-              required: false
-            - label: "כפתור פרטים"
-              name: "detailsCta"
-              widget: string
-              required: false
-            - label: "כותרת היתרונות"
-              name: "benefitsHead"
-              widget: string
-              required: false
-            - label: "יתרונות"
-              name: "benefits"
-              widget: list
-              required: false
-              summary: "{{fields.icon}}"
-              fields:
-                - label: "אייקון (לא לשנות)"
-                  name: "icon"
-                  widget: string
-                  required: false
-                - label: "כיתוב"
-                  name: "label"
-                  widget: string
-                  required: false
-            - label: "התקנה"
-              name: "install"
-              widget: string
-              required: false
-            - label: "מתנה"
-              name: "gift"
-              widget: string
-              required: false
-            - label: "תווית מתנה"
-              name: "giftLabel"
-              widget: string
-              required: false
-            - label: "תווית אחריות"
-              name: "warrantyLabel"
-              widget: string
-              required: false
-            - label: "תווית תקנים"
-              name: "certsLabel"
-              widget: string
-              required: false
-            - label: "תוצרת ישראל"
-              name: "madeInIsrael"
-              widget: string
-              required: false
-            - label: "הערת תמונה"
-              name: "disclaimer"
-              widget: string
-              required: false
-            - label: "קישור למדרג"
-              name: "madragUrl"
-              widget: string
-              required: false
-            - label: "כיתוב קישור מדרג"
-              name: "madragLabel"
-              widget: string
-              required: false
-            - label: "רמז הגדלה"
-              name: "zoomHint"
-              widget: string
-              required: false
-            - label: "רמז החלקה"
-              name: "swipeHint"
-              widget: string
-              required: false
-            - label: "תיאור הקרוסלה"
-              name: "carouselLabel"
-              widget: string
-              required: false
-            - label: "הקודם"
-              name: "prevLabel"
-              widget: string
-              required: false
-            - label: "הבא"
-              name: "nextLabel"
-              widget: string
-              required: false
-            - label: "הדגמים"
-              name: "items"
-              widget: list
-              required: false
-              summary: "{{fields.img}}"
-              fields:
-                - label: "נתיב תמונה (לא לשנות)"
-                  name: "img"
-                  widget: string
-                  required: false
-                - label: "שם"
-                  name: "name"
-                  widget: string
-                  required: false
-                - label: "דגם"
-                  name: "model"
-                  widget: string
-                  required: false
-                - label: "אחריות"
-                  name: "warranty"
-                  widget: string
-                  required: false
-                - label: "תגיות"
-                  name: "chips"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "תיאור"
-                  name: "desc"
-                  widget: string
-                  required: false
-                - label: "תיאור הבאנר"
-                  name: "bannerDesc"
-                  widget: text
-                  required: false
-                - label: "תקנים ואישורים"
-                  name: "certs"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "ארץ ייצור"
-                  name: "origin"
-                  widget: list
-                  required: false
-                  field: { label: "פריט", name: item, widget: string }
-                - label: "תוצרת ישראל"
-                  name: "madeInIsrael"
-                  widget: boolean
-                  required: false
         - label: "ביקורות לקוחות"
           name: "reviews"
           widget: object
